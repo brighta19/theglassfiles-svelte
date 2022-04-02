@@ -1,35 +1,41 @@
 <div class="navbar">
-    <p>View <span class="red">Thumbnails</span></p>
-    <p>View <span class="red">Descriptions</span></p>
-    <p>View <span class="red">Tags</span></p>
-    <p>Shuffle <span class="red">Items</span></p>
+    <button>View <span class="red">Descriptions</span></button>
+    <button>View <span class="red">Artwork</span></button>
+    <button>View <span class="red">Tags</span></button>
+    <button disabled>Shuffle <span class="red">Items</span></button>
 </div>
 
 <style>
     .navbar {
-        padding: 20px 10px;
+        padding: 20px 0;
         display: grid;
         grid-template-columns: auto auto auto auto;
-        justify-content: center;
+        justify-content: space-between;
         column-gap: 10px;
-        text-transform: uppercase;
-        color: #0f004e;
-        font-size: 24px;
-        font-family: Adobe Garamond Pro, Times, serif;
+        margin-bottom: 30px;
     }
-    .navbar p {
-        padding: 10px 20px;
-        background-color: transparent;
-        text-decoration: none;
+    button {
         margin: 0;
+        padding: 0;
+        /* padding: 10px 20px; */
+        color: #0f004e;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 24px;
     }
-    .navbar p:hover {
+    button:hover:not([disabled]) {
         text-decoration: underline;
-        background-color: #eeeeee;
-        background-color: #00000011;
+        /* background-color: #eeeeee; */
+        /* background-color: #00000011; */
         cursor: pointer;
     }
-    .navbar .red {
+    button .red {
 		color: #860038;
+    }
+    button:disabled, button:disabled .red {
+        color: #666666;
     }
 </style>

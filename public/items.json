@@ -54,5 +54,33 @@
     "location": "The United States",
     "date": "Present",
     "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/thumb/photograph_20220401-005631?1648775593"
+  }  ,
+  {
+    "media_type": "photograph",
+    "short_description": "First Black woman to join the Supreme Court.",
+    "location": "Washington",
+    "date": "March 22/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/732/thumb/photograph_20220322-170630?1648745558"
+  },
+  {
+    "media_type": "biography",
+    "short_description": "Who is Moore and why is there a statue of him in Central Park?",
+    "location": "New York",
+    "date": "3/29/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/791/thumb/biography_20220329-235753?1648600754"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "Glass mosaic artwork at Prospect Avenue subway station",
+    "location": "Prospect and Longwood Avenues",
+    "date": "March 28, 2022",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/788/thumb/photograph_20220328-115648?1648571709"
+  },
+  {
+    "media_type": "video",
+    "short_description": "Snapchat's journey from start-up to tech giant",
+    "location": "CBS News",
+    "date": "3/28/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/376/thumb/video_20220329-015126?1648518864"
   }
 ]

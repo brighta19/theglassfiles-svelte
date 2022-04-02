@@ -1,6 +1,7 @@
-<script lang="ts">
+<script>
 	export let item;
 	export let index;
+
 	let color = (index + Math.floor(index / 4)) % 2 ? "blue": "red";
 	let {media_type, short_description, location, date, img_src} = item;
 </script>
@@ -53,7 +54,6 @@
 		padding: 10px;
 		color: #ffffff;
 		font-size: 13px;
-		font-family: Adobe Garamond Pro, Times, serif;
 		letter-spacing: 2px;
 		line-height: 1.4;
 		transition: opacity var(--transition-speed);
@@ -70,7 +70,7 @@
 		margin: 0 0 15px 0;
 	}
 	.item:hover {
-		transform: scale(1.1);
+		transform: scale(1.12);
 	}
 	.item:hover .info {
 		opacity: 1;

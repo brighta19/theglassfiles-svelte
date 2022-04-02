@@ -19,7 +19,6 @@
 
 <style>
 	.items {
-		padding-top: 20px;
 		display: grid;
 		gap: 30px;
 		grid-template-columns: auto auto auto auto;

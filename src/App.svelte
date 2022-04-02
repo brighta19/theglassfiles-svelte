@@ -1,6 +1,7 @@
 <script>
-import { onMount } from "svelte";
+	import { onMount } from "svelte";
 
+	import Header from "./Header.svelte";
 	import ItemGrid from "./ItemGrid.svelte";
 	import ItemNavbar from "./ItemNavbar.svelte";
 
@@ -12,6 +13,8 @@ import { onMount } from "svelte";
 </script>
 
 <main>
+	<Header active="stories" />
+
 	<ItemNavbar />
 	<ItemGrid {items} />
 </main>
@@ -20,6 +23,8 @@ import { onMount } from "svelte";
 	main {
 		display: block;
 		width: 1000px;
+		width: max-content;
 		margin: 0 auto;
+		padding: 25px 20px 0;
 	}
 </style>
