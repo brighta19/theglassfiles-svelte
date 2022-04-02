@@ -1,0 +1,58 @@
+[
+  {
+    "media_type": "artwork",
+    "short_description": "Awareness of Cancer",
+    "location": "Bronx NY",
+    "date": "4/01/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/thumb/artwork_20220401-225608?1648911385"
+  },
+  {
+    "media_type": "artwork",
+    "short_description": "Sexual Assault Awareness",
+    "location": "Bronx NY",
+    "date": "4/01/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/859/thumb/artwork_20220401-230014?1648911350"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "The beginning of Ramadan 2022",
+    "location": "Bronx NY",
+    "date": "4/01/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/857/thumb/photograph_20220401-225030?1648911328"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "What was the reason for World war 2",
+    "location": "Europe",
+    "date": "4/1/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/861/thumb/photograph_20220402-005826?1648861914"
+  },
+  {
+    "media_type": "video",
+    "short_description": "WW2 Short Documentary",
+    "location": "Europe",
+    "date": "4/1/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/377/thumb/video_20220402-010659?1648861720"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "History Behind YouTube",
+    "location": "California",
+    "date": "4/01/22",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/860/thumb/photograph_20220401-235213?1648859544"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "The burning of fossil fuels has been affecting the air quality.",
+    "location": "The United States",
+    "date": "Present",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/671/thumb/photograph_20220317-134709?1648820529"
+  },
+  {
+    "media_type": "photograph",
+    "short_description": "The burning of fossil fuels has been affecting the air quality.",
+    "location": "The United States",
+    "date": "Present",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/thumb/photograph_20220401-005631?1648775593"
+  }
+]
