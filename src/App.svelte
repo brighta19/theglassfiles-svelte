@@ -4,6 +4,7 @@
 	import Header from "./Header.svelte";
 	import ItemGrid from "./ItemGrid.svelte";
 	import ItemNavbar from "./ItemNavbar.svelte";
+	import Footer from "./Footer.svelte";
 
 	let items = [];
 
@@ -17,14 +18,15 @@
 
 	<ItemNavbar />
 	<ItemGrid {items} />
+
+	<Footer />
 </main>
 
 <style>
 	main {
 		display: block;
-		width: 1000px;
-		width: max-content;
+		width: 950px;
 		margin: 0 auto;
-		padding: 25px 20px 0;
+		padding: 25px 20px 15px;
 	}
 </style>

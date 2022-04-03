@@ -22,6 +22,7 @@
 		display: grid;
 		gap: 30px;
 		grid-template-columns: auto auto auto auto;
-  		justify-content: center;
-	}
+        justify-content: center;
+        margin-bottom: 80px;
+    }
 </style>
