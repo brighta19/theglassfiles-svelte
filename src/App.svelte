@@ -13,20 +13,16 @@
 	});
 </script>
 
+<Header active="stories" />
 <main>
-	<Header active="stories" />
-
 	<ItemNavbar />
 	<ItemGrid {items} />
-
-	<Footer />
 </main>
+<Footer />
 
 <style>
 	main {
 		display: block;
-		width: 950px;
-		margin: 0 auto;
-		padding: 25px 20px 15px;
+		/* padding: 25px 20px 15px; */
 	}
 </style>

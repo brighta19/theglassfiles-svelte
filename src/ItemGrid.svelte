@@ -3,11 +3,12 @@
 	import ItemPlaceholder from "./ItemPlaceholder.svelte";
 
     export let items;
+    const NUMBER_OF_PLACEHOLDER_ITEMS = 8;
 </script>
 
 <div class="items">
     {#if items.length === 0}
-        {#each (new Array(8)) as _i}
+        {#each (new Array(NUMBER_OF_PLACEHOLDER_ITEMS)) as _i}
             <ItemPlaceholder />
         {/each}
     {:else}
