@@ -7,6 +7,10 @@ body {
 	font-family: Adobe Garamond Pro, Times, serif;
 }
 
+p {
+	margin: 0;
+}
+
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;

@@ -1,6 +1,6 @@
 <script>
-	import Item from "./Item.svelte";
-	import ItemPlaceholder from "./ItemPlaceholder.svelte";
+	import ItemThumbnail from "./ItemThumbnail.svelte";
+	import ItemThumbnailPlaceholder from "./ItemPlaceholder.svelte";
 
     export let items;
     const NUMBER_OF_PLACEHOLDER_ITEMS = 8;
@@ -9,11 +9,11 @@
 <div class="items">
     {#if items.length === 0}
         {#each (new Array(NUMBER_OF_PLACEHOLDER_ITEMS)) as _i}
-            <ItemPlaceholder />
+            <ItemThumbnailPlaceholder />
         {/each}
     {:else}
         {#each items as item, index}
-            <Item {item} {index} />
+            <ItemThumbnail {item} {index} />
         {/each}
     {/if}
 </div>

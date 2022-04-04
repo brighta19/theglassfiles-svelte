@@ -5,12 +5,16 @@
 	import ItemGrid from "./ItemGrid.svelte";
 	import ItemNavbar from "./ItemNavbar.svelte";
 	import Footer from "./Footer.svelte";
+	import ItemPreviewModal from "./ItemPreviewModal.svelte";
 
 	let items = [];
 
 	onMount(async () => {
 		items = await (await fetch("items.json")).json();
 	});
+
+	let showItemPreviewModal = true;
+	$: document.body.style.overflowY = showItemPreviewModal ? "hidden" : "auto";
 </script>
 
 <Header active="stories" />
@@ -19,10 +23,7 @@
 	<ItemGrid {items} />
 </main>
 <Footer />
+{#if showItemPreviewModal}
+	<ItemPreviewModal />
+{/if}
 
-<style>
-	main {
-		display: block;
-		/* padding: 25px 20px 15px; */
-	}
-</style>

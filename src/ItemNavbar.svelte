@@ -17,19 +17,16 @@
     button {
         margin: 0;
         padding: 0;
-        /* padding: 10px 20px; */
         color: #0f004e;
         background-color: transparent;
         border: none;
         border-radius: 0;
         text-decoration: none;
         text-transform: uppercase;
-        font-size: 24px;
+        font-size: 1.5rem;
     }
     button:hover:not([disabled]) {
         text-decoration: underline;
-        /* background-color: #eeeeee; */
-        /* background-color: #00000011; */
         cursor: pointer;
     }
     button .red {
