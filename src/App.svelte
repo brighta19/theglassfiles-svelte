@@ -23,7 +23,7 @@
 	<ItemGrid {items} />
 </main>
 <Footer />
-{#if showItemPreviewModal}
-	<ItemPreviewModal />
+{#if items.length > 0 && showItemPreviewModal}
+	<ItemPreviewModal item={items[0]} />
 {/if}
 

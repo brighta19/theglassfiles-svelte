@@ -1,10 +1,18 @@
 <script>
-    export let type;
-    export let src;
+    export let item;
     export let width;
     export let height;
+
+    let imageMediaTypes = ["artwork"];
+
+    let {
+        media_type,
+        img_src,
+    } = item;
+
+    let isImage = imageMediaTypes.find(m => m === media_type);
 </script>
 
-{#if type == "image"}
-    <img {src} alt="Item preview" {width} {height} />
+{#if isImage}
+    <img src={img_src} alt="Item preview" {width} {height} />
 {/if}

@@ -1,5 +1,5 @@
 body {
-	color: #333;
+	color: #333333;
 	width: 950px;
 	margin: 0 auto;
 	padding: 25px 0 15px;
@@ -11,24 +11,42 @@ p {
 	margin: 0;
 }
 
-a {
-	color: rgb(0,100,200);
+button {
+	margin: 0;
+	padding: 0;
+	color: #0f004e;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
 	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-family: inherit;
+}
+button:hover:not([disabled]) {
+	text-decoration: underline;
+	cursor: pointer;
+}
+button .red {
+	color: #860038;
+}
+button:disabled, button:disabled .red {
+	color: #666666;
+}
+
+a {
+	color: #333333;
 }
 
 a:hover {
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(0,80,160);
+	text-decoration: none;
 }
 
 label {
 	display: block;
 }
 
-input, button, select, textarea {
+input, select, textarea {
 	font-family: inherit;
 	font-size: inherit;
 	-webkit-padding: 0.4em 0;

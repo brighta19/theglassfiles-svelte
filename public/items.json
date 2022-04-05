@@ -1,86 +1,176 @@
 [
   {
+    "id": 8858,
     "media_type": "artwork",
-    "short_description": "Awareness of Cancer",
+    "subject": "Cancer",
+    "title": "Cancer Control Month",
+    "summary": "Awareness of Cancer",
+    "description": "Since 1938, the President of the United States has proclaimed April as National Cancer Control Month. This month is dedicated to raising awareness for cancer prevention and treatment throughout the US. For many years, the death tolls from cancer have steadily declined, due in part to better education and heightened awareness about how to prevent certain types of cancer, recognize the signs and symptoms of cancer, and how to seek proper treatment.\nAlthough cancer is one of the leading causes of death in the US, it is also one of the most easily preventable. Making an effort to protect your body and utilizing the available resources can help prevent a future cancer diagnosis, or even death.\nCancer researchers have identified several lifestyle decisions that Americans can make to reduce their risk of cancer, such as quitting tobacco, eating healthier, exercising regularly, using sun protection and undergoing recommended screenings.\nNational Cancer Control Month is a great time to look into MANY ways to prevent cancer and its treatment complications. Thus, the goal of National Cancer Control Month is for Americans to lead healthy and productive lives, with the hopes that by educating yourself and doing research, we can help in the decline of cancer-related deaths in the near future.",
     "location": "Bronx NY",
     "date": "4/01/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/thumb/artwork_20220401-225608?1648911385"
+    "author": "Wasila Ibrahim",
+    "source": "Wikipedia",
+    "tags": [ "artwork", "cancer", "control", "awareness", "prevention", "attention", "illness", "deadly", "death", "cancercontrol", "national", "April" ],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/thumb/artwork_20220401-225608?1648911385",
+    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/show/artwork_20220401-225608?1648911385",
+    "user": {
+      "first_name": "Wasila",
+      "middle_name": "M",
+      "last_name": "Ibrahim"
+    }
   },
   {
     "media_type": "artwork",
-    "short_description": "Sexual Assault Awareness",
+    "subject": "",
+    "title": "",
+    "summary": "Sexual Assault Awareness",
+    "description": "",
     "location": "Bronx NY",
     "date": "4/01/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/859/thumb/artwork_20220401-230014?1648911350"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/859/thumb/artwork_20220401-230014?1648911350",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "The beginning of Ramadan 2022",
+    "subject": "",
+    "title": "",
+    "summary": "The beginning of Ramadan 2022",
+    "description": "",
     "location": "Bronx NY",
     "date": "4/01/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/857/thumb/photograph_20220401-225030?1648911328"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/857/thumb/photograph_20220401-225030?1648911328",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "What was the reason for World war 2",
+    "subject": "",
+    "title": "",
+    "summary": "What was the reason for World war 2",
+    "description": "",
     "location": "Europe",
     "date": "4/1/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/861/thumb/photograph_20220402-005826?1648861914"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/861/thumb/photograph_20220402-005826?1648861914",
+    "img_src": ""
   },
   {
     "media_type": "video",
-    "short_description": "WW2 Short Documentary",
+    "subject": "",
+    "title": "",
+    "summary": "WW2 Short Documentary",
+    "description": "",
     "location": "Europe",
     "date": "4/1/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/377/thumb/video_20220402-010659?1648861720"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/377/thumb/video_20220402-010659?1648861720",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "History Behind YouTube",
+    "subject": "",
+    "title": "",
+    "summary": "History Behind YouTube",
+    "description": "",
     "location": "California",
     "date": "4/01/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/860/thumb/photograph_20220401-235213?1648859544"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/860/thumb/photograph_20220401-235213?1648859544",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "The burning of fossil fuels has been affecting the air quality.",
+    "subject": "",
+    "title": "",
+    "summary": "The burning of fossil fuels has been affecting the air quality.",
+    "description": "",
     "location": "The United States",
     "date": "Present",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/671/thumb/photograph_20220317-134709?1648820529"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/671/thumb/photograph_20220317-134709?1648820529",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "One of the best medical drama series.",
+    "subject": "",
+    "title": "",
+    "summary": "One of the best medical drama series.",
+    "description": "",
     "location": "Seattle",
     "date": "3/31/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/thumb/photograph_20220401-005631?1648775593"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/thumb/photograph_20220401-005631?1648775593",
+    "img_src": ""
   }  ,
   {
     "media_type": "photograph",
-    "short_description": "First Black woman to join the Supreme Court.",
+    "subject": "",
+    "title": "",
+    "summary": "First Black woman to join the Supreme Court.",
+    "description": "",
     "location": "Washington",
     "date": "March 22/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/732/thumb/photograph_20220322-170630?1648745558"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/732/thumb/photograph_20220322-170630?1648745558",
+    "img_src": ""
   },
   {
     "media_type": "biography",
-    "short_description": "Who is Moore and why is there a statue of him in Central Park?",
+    "subject": "",
+    "title": "",
+    "summary": "Who is Moore and why is there a statue of him in Central Park?",
+    "description": "",
     "location": "New York",
     "date": "3/29/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/791/thumb/biography_20220329-235753?1648600754"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/791/thumb/biography_20220329-235753?1648600754",
+    "img_src": ""
   },
   {
     "media_type": "photograph",
-    "short_description": "Glass mosaic artwork at Prospect Avenue subway station",
+    "subject": "",
+    "title": "",
+    "summary": "Glass mosaic artwork at Prospect Avenue subway station",
+    "description": "",
     "location": "Prospect and Longwood Avenues",
     "date": "March 28, 2022",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/788/thumb/photograph_20220328-115648?1648571709"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/788/thumb/photograph_20220328-115648?1648571709",
+    "img_src": ""
   },
   {
     "media_type": "video",
-    "short_description": "Snapchat's journey from start-up to tech giant",
+    "subject": "",
+    "title": "",
+    "summary": "Snapchat's journey from start-up to tech giant",
+    "description": "",
     "location": "CBS News",
     "date": "3/28/22",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/376/thumb/video_20220329-015126?1648518864"
+    "author": "",
+    "source": "",
+    "tags": [],
+    "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/376/thumb/video_20220329-015126?1648518864",
+    "img_src": ""
   }
 ]

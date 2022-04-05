@@ -3,14 +3,14 @@
 	export let index;
 
 	let color = (index + Math.floor(index / 4)) % 2 ? "blue": "red";
-	let {media_type, short_description, location, date, img_src} = item;
+	let {media_type, summary, location, date, thumbnail_src} = item;
 </script>
 
 <div class="item" class:red={color === "red"} class:blue={color === "blue"}>
-	<img class="thumbnail" src={img_src} width="210" height="210" alt="Item thumbnail" />
+	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="info">
 		<p>{media_type}</p>
-		<p>{short_description}</p>
+		<p>{summary}</p>
 		<p>{location}</p>
 		<p>{date}</p>
 	</div>
