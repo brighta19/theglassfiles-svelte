@@ -27,9 +27,6 @@ button:hover:not([disabled]) {
 	text-decoration: underline;
 	cursor: pointer;
 }
-button .red {
-	color: #860038;
-}
 button:disabled, button:disabled .red {
 	color: #666666;
 }
@@ -40,6 +37,34 @@ a {
 
 a:hover {
 	text-decoration: none;
+}
+
+.lower {
+	text-transform: lowercase;
+}
+.upper {
+	text-transform: uppercase;
+}
+.center {
+	text-align: center;
+}
+.red {
+	color: #860038;
+}
+.blue {
+	color: #0f004e;
+}
+.red-bg {
+	background-color: #860038;
+}
+.blue-bg {
+	background-color: #0f004e;
+}
+.italic {
+	font-style: italic;
+}
+.bold {
+	font-weight: bold;
 }
 
 label {

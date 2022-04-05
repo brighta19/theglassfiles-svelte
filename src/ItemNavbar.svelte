@@ -14,25 +14,4 @@
         column-gap: 10px;
         margin-bottom: 30px;
     }
-    button {
-        margin: 0;
-        padding: 0;
-        color: #0f004e;
-        background-color: transparent;
-        border: none;
-        border-radius: 0;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-    }
-    button:hover:not([disabled]) {
-        text-decoration: underline;
-        cursor: pointer;
-    }
-    button .red {
-		color: #860038;
-    }
-    button:disabled, button:disabled .red {
-        color: #666666;
-    }
 </style>

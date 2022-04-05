@@ -163,22 +163,4 @@
 	    color: #0f004e;
         text-decoration: underline;
     }
-    .lower {
-        text-transform: lowercase;
-    }
-    .center {
-        text-align: center;
-    }
-    .red {
-        color: #860038;
-    }
-    .blue {
-	    color: #0f004e;
-    }
-    .italic {
-        font-style: italic;
-    }
-    .bold {
-        font-weight: bold;
-    }
 </style>

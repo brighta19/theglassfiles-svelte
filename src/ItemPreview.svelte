@@ -17,12 +17,12 @@
 </script>
 
 {#if loadError}
-    <div class="placeholder-image" style={`width: ${width}px; height: ${height}px`}></div>
+    <div class="placeholder-image" style="--width: {width}px; --height: {height}px"></div>
 {:else}
     {#if isImage}
         <img src={media_src} alt="Item preview" {width} {height} on:error={() => loadError = true} />
     {:else if isVideo}
-        <iframe src={media_src} frameborder='0'  {width} {height}></iframe>
+        <iframe src={media_src} title="ytframe" frameborder="0" {width} {height}></iframe>
     {/if}
 {/if}
 
@@ -31,6 +31,8 @@
         display: block;
     }
     .placeholder-image {
+        width: var(--width);
+        height: var(--height);
         background: #ffffff url("/logo_the-glass-files.jpg") no-repeat center;
     }
 </style>
