@@ -2,17 +2,17 @@
 	import ItemThumbnail from "./ItemThumbnail.svelte";
 	import ItemThumbnailPlaceholder from "./ItemPlaceholder.svelte";
 
-    export let items;
+    export let items = [];
     export let columns = 4;
-
-    const NUMBER_OF_PLACEHOLDER_ITEMS = 8;
+    export let placeholders = 8;
+    export let gap = "30px";
 
     let templateColumns = " auto".repeat(columns);
 </script>
 
-<div class="items" style="--template-columns: {templateColumns}">
+<div class="items" style="--template-columns: {templateColumns}; --gap: {gap}">
     {#if items.length === 0}
-        {#each (new Array(NUMBER_OF_PLACEHOLDER_ITEMS)) as _i}
+        {#each (new Array(Number(placeholders))) as _i}
             <ItemThumbnailPlaceholder />
         {/each}
     {:else}
@@ -25,9 +25,8 @@
 <style>
 	.items {
 		display: grid;
-		gap: 30px;
+		gap: var(--gap);
 		grid-template-columns: var(--template-columns);
         justify-content: center;
-        margin-bottom: 80px;
     }
 </style>

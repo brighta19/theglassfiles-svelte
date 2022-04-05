@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
+    import ItemGrid from "./ItemGrid.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -44,9 +45,7 @@
 <svelte:window on:keydown={onKeyDown} />
 <div class="container" on:click|self={() => dispatch(EXIT_EVENT)}>
     <div class="preview">
-        <a href={Links.ITEM}>
-            <ItemPreview {item} width="720" height="480" />
-        </a>
+        <ItemPreview {item} width="720" height="480" includeLink />
         <div class="summary">
             <p>{summary}</p>
             <button on:click={() => showDetails = !showDetails}>
@@ -102,6 +101,9 @@
                 </p>
             </div>
         {/if}
+        <div class="more">
+            <ItemGrid columns="3" placeholders="6" gap="20px" />
+        </div>
     </div>
 </div>
 
@@ -119,7 +121,7 @@
     .preview {
 	    width: 720px;
         margin: 30px auto;
-        padding: 25px 0;
+        padding-top: 25px;
         background: #ffffff;
         box-shadow: 0 5px 15px #00000088;
     }
@@ -162,5 +164,8 @@
     .details .login-status a:hover {
 	    color: #0f004e;
         text-decoration: underline;
+    }
+    .more {
+        padding: 24px;
     }
 </style>

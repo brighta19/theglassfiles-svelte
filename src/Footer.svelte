@@ -20,6 +20,9 @@
 
 
 <style>
+    footer {
+        margin-top: 80px;
+    }
     a {
         display: inline-block;
         text-decoration: none;
