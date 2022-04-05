@@ -1,5 +1,8 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
+
+    const dispatch = createEventDispatcher();
 
     export let item;
 
@@ -21,6 +24,7 @@
 
     let showDetails = false;
 
+    const EXIT_EVENT = "exit";
     const Links = {
         SIGN_UP: "https://www.theglassfiles.com/users/sign_up",
         SIGN_IN: "https://www.theglassfiles.com/users/sign_in",
@@ -30,9 +34,15 @@
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
+
+    function onKeyDown(event) {
+        if (event.code === "Escape")
+            dispatch(EXIT_EVENT);
+    }
 </script>
 
-<div class="container">
+<svelte:window on:keydown={onKeyDown} />
+<div class="container" on:click|self={() => dispatch(EXIT_EVENT)}>
     <div class="preview">
         <a href={Links.ITEM}>
             <ItemPreview {item} width="720" height="480" />
@@ -104,7 +114,7 @@
         height: 100vh;
         background-color: #000000;
         background-color: #00000088;
-        overflow-y: scroll;
+        overflow-y: overlay;
     }
     .preview {
 	    width: 720px;

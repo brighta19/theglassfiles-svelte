@@ -3,6 +3,7 @@
 	import ItemThumbnailPlaceholder from "./ItemPlaceholder.svelte";
 
     export let items;
+
     const NUMBER_OF_PLACEHOLDER_ITEMS = 8;
 </script>
 
@@ -13,7 +14,7 @@
         {/each}
     {:else}
         {#each items as item, index}
-            <ItemThumbnail {item} {index} />
+            <ItemThumbnail {item} {index} on:itemclick />
         {/each}
     {/if}
 </div>

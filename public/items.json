@@ -12,7 +12,7 @@
     "source": "Wikipedia",
     "tags": [ "artwork", "cancer", "control", "awareness", "prevention", "attention", "illness", "deadly", "death", "cancercontrol", "national", "April" ],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/thumb/artwork_20220401-225608?1648911385",
-    "img_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/show/artwork_20220401-225608?1648911385",
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/858/show/artwork_20220401-225608?1648911385",
     "user": {
       "first_name": "Wasila",
       "middle_name": "M",
@@ -31,7 +31,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/859/thumb/artwork_20220401-230014?1648911350",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/859/modal/artwork_20220401-230014?1648911350",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -45,7 +50,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/857/thumb/photograph_20220401-225030?1648911328",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/857/modal/photograph_20220401-225030?1648911328",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -59,7 +69,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/861/thumb/photograph_20220402-005826?1648861914",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/861/modal/photograph_20220402-005826?1648861914",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "video",
@@ -73,7 +88,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/377/thumb/video_20220402-010659?1648861720",
-    "img_src": ""
+    "media_src": "https://www.youtube-nocookie.com/embed/yLHPLWDyHio?enablejsapi=1",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -87,7 +107,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/860/thumb/photograph_20220401-235213?1648859544",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/860/modal/photograph_20220401-235213?1648859544",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -101,7 +126,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/671/thumb/photograph_20220317-134709?1648820529",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/671/modal/photograph_20220317-134709?1648820529",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -115,7 +145,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/thumb/photograph_20220401-005631?1648775593",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/822/modal/photograph_20220401-005631?1648775593",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   }  ,
   {
     "media_type": "photograph",
@@ -129,7 +164,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/732/thumb/photograph_20220322-170630?1648745558",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/732/modal/photograph_20220322-170630?1648745558",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "biography",
@@ -143,7 +183,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/791/thumb/biography_20220329-235753?1648600754",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/791/modal/biography_20220329-235753?1648600754",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "photograph",
@@ -157,7 +202,12 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/788/thumb/photograph_20220328-115648?1648571709",
-    "img_src": ""
+    "media_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/008/788/modal/photograph_20220328-115648?1648571709",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   },
   {
     "media_type": "video",
@@ -171,6 +221,11 @@
     "source": "",
     "tags": [],
     "thumbnail_src": "https://s3.amazonaws.com/media-theglassfiles-com/media/videos/000/000/376/thumb/video_20220329-015126?1648518864",
-    "img_src": ""
+    "media_src": "https://www.youtube-nocookie.com/embed/FXWL5XOwlbg?enablejsapi=1",
+    "user": {
+      "first_name": "",
+      "middle_name": "",
+      "last_name": ""
+    }
   }
 ]

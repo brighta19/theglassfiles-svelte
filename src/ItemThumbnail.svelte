@@ -1,12 +1,19 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
 	export let item;
 	export let index;
 
-	let color = (index + Math.floor(index / 4)) % 2 ? "blue": "red";
+    const ITEM_CLICK_EVENT = "itemclick";
+
+	let blue = (index + Math.floor(index / 4)) % 2 === 1;
+	let red = (index + Math.floor(index / 4)) % 2 === 0;
 	let {media_type, summary, location, date, thumbnail_src} = item;
 </script>
 
-<div class="item" class:red={color === "red"} class:blue={color === "blue"}>
+<div class="item" class:red class:blue on:click={() => dispatch(ITEM_CLICK_EVENT, item)}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="info">
 		<p>{media_type}</p>

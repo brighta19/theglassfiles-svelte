@@ -13,17 +13,23 @@
 		items = await (await fetch("items.json")).json();
 	});
 
-	let showItemPreviewModal = true;
-	$: document.body.style.overflowY = showItemPreviewModal ? "hidden" : "auto";
+	let previewedItem = null;
+	let showItemPreviewModal = false;
+
+	$: document.body.style.overflowY = showItemPreviewModal ? "hidden" : "overlay";
+
+	function onItemClick(event) {
+		previewedItem = event.detail;
+		showItemPreviewModal = true;
+	}
 </script>
 
 <Header active="stories" />
 <main>
 	<ItemNavbar />
-	<ItemGrid {items} />
+	<ItemGrid {items} on:itemclick={onItemClick} />
 </main>
 <Footer />
 {#if items.length > 0 && showItemPreviewModal}
-	<ItemPreviewModal item={items[0]} />
+	<ItemPreviewModal item={previewedItem} on:exit={() => showItemPreviewModal = false} />
 {/if}
-
