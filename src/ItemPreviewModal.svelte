@@ -76,7 +76,7 @@
                 <p>
                     <span class="lower italic red">Tags:</span>
                     {#each tags as tag, i}
-                        {#if i !== 0} &nbsp;- {/if}
+                        {#if i !== 0} &nbsp;- {/if} <!-- Yes, i needed &nbsp; -->
                         <a href={urlFromTag(tag)}>{tag}</a>
                     {/each}
                 </p>
@@ -124,6 +124,7 @@
         padding-top: 25px;
         background: #ffffff;
         box-shadow: 0 5px 15px #00000088;
+        animation: 300ms fade-in;
     }
     .summary {
         display: flex;
@@ -167,5 +168,16 @@
     }
     .more {
         padding: 24px;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0.3;
+            transform: scale(1.05);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 </style>

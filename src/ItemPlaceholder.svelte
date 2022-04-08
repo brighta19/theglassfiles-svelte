@@ -6,12 +6,7 @@
 		background-color: #eeeeee;
 		width: 210px;
 		height: 210px;
-		transform: scale(1);
-		transition: transform var(--transition-speed);
-        animation: 2s placeholder-bg alternate infinite linear;
-	}
-	.item:hover {
-		transform: scale(1.1);
+        animation: 1s placeholder-bg alternate infinite linear;
 	}
     @keyframes placeholder-bg {
         from { background-color: #cccccc }

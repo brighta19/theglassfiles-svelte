@@ -16,6 +16,7 @@
     let isImage = imageMediaTypes.find(m => m === media_type);
     let isVideo = videoMediaTypes.find(m => m === media_type);
     let link = `https://www.theglassfiles.com/browse/images/${id}/show`;
+    let alt = "Item preview";
     let loadError = false;
 </script>
 
@@ -23,9 +24,13 @@
     <div class="placeholder-image" style="--width: {width}px; --height: {height}px"></div>
 {:else}
     {#if isImage}
-        <a href={includeLink ? link : null}>
-            <img src={media_src} alt="Item preview" {width} {height} on:error={() => loadError = true} />
-        </a>
+        {#if includeLink}
+            <a href={link}>
+                <img src={media_src} {alt} {width} {height} on:error={() => loadError = true} />
+            </a>
+        {:else}
+            <img src={media_src} {alt} {width} {height} on:error={() => loadError = true} />
+        {/if}
     {:else if isVideo}
         <iframe src={media_src} title="ytframe" frameborder="0" {width} {height}></iframe>
     {/if}

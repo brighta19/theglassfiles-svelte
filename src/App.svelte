@@ -30,6 +30,6 @@
 	<ItemGrid {items} on:itemclick={onItemClick} />
 </main>
 <Footer />
-{#if items.length > 0 && showItemPreviewModal}
+{#if showItemPreviewModal}
 	<ItemPreviewModal item={previewedItem} on:exit={() => showItemPreviewModal = false} />
 {/if}

@@ -1,0 +1,9 @@
+
+{
+    "name": "tgf app",
+    "short_name": "the tgf app",
+    "description": "a tgf app",
+    "start_url": "/",
+    "id": "/the-tgf-app",
+    "display": "standalone"
+}
