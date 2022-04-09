@@ -1,19 +1,19 @@
 <footer>
     <nav class="block-1 blue-bg">
-        <a href="/">Blog</a>
+        <p><a href="/">Blog</a></p>
         <span>||</span>
-        <a href="/">Newsletter</a>
+        <p><a href="/">Newsletter</a></p>
         <span>||</span>
-        <a href="/">Twitter</a>
+        <p><a href="/">Twitter</a></p>
         <span>||</span>
-        <a href="/">Instagram</a>
+        <p><a href="/">Instagram</a></p>
     </nav>
     <nav class="block-2 blue">
-        <a href="/">customer service</a>
+        <p><a href="/">customer service</a></p>
         <span>||</span>
-        <a href="/">terms of use</a>
+        <p><a href="/">terms of use</a></p>
         <span>||</span>
-        <a href="/">privacy</a>
+        <p><a href="/">privacy</a></p>
     </nav>
     <p class="copyright blue">all materials &copy; 2013-2022, their respective owners or The Glass Files Inc.</p>
 </footer>
