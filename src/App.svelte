@@ -18,7 +18,15 @@
 	let showDescription = false;
 	let showTags = false;
 
-	$: document.body.style.overflowY = showItemPreviewModal ? "hidden" : "overlay";
+	$: {
+		if (showItemPreviewModal) {
+			document.body.style.overflowY = "hidden";
+		}
+		else {
+			document.body.style.overflowY = "auto";
+			document.body.style.overflowY = "overlay";
+		}
+	}
 
 	function onItemClick(event) {
 		previewedItem = event.detail;

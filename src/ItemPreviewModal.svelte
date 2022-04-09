@@ -116,6 +116,7 @@
         height: 100vh;
         background-color: #000000;
         background-color: #00000088;
+        overflow-y: auto;
         overflow-y: overlay;
     }
     .preview {
