@@ -4,7 +4,7 @@
 
     export let items = [];
     export let columns = 4;
-    export let placeholders = 8;
+    export let placeholders = 12;
     export let gap = "30px";
 
     let templateColumns = " auto".repeat(columns);

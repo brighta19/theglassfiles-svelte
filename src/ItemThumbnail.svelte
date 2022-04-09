@@ -77,7 +77,7 @@
 		margin: 0 0 15px 0;
 	}
 	.item:hover {
-		transform: scale(1.12);
+		transform: scale(1.1);
 	}
 	.item:hover .info {
 		opacity: 1;

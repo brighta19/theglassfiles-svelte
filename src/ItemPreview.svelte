@@ -11,6 +11,7 @@
         id,
         media_type,
         media_src,
+        youtube_video_id
     } = item;
 
     let isImage = imageMediaTypes.find(m => m === media_type);
@@ -20,29 +21,30 @@
     let loadError = false;
 </script>
 
-{#if loadError}
-    <div class="placeholder-image" style="--width: {width}px; --height: {height}px"></div>
-{:else}
-    {#if isImage}
-        {#if includeLink}
-            <a href={link}>
-                <img src={media_src} {alt} {width} {height} on:error={() => loadError = true} />
-            </a>
-        {:else}
-            <img src={media_src} {alt} {width} {height} on:error={() => loadError = true} />
+<div class="preview-container" style="--width: {width}px; --height: {height}px">
+    {#if loadError}
+        <div class="placeholder-image"></div>
+    {:else}
+        {#if isImage}
+            {#if includeLink}
+                <a href={link}>
+                    <img src={media_src} {alt} on:error={() => loadError = true} />
+                </a>
+            {:else}
+                <img src={media_src} {alt} on:error={() => loadError = true} />
+            {/if}
+        {:else if isVideo}
+            <lite-youtube videoid={youtube_video_id}></lite-youtube>
         {/if}
-    {:else if isVideo}
-        <iframe src={media_src} title="ytframe" frameborder="0" {width} {height}></iframe>
     {/if}
-{/if}
+</div>
 
 <style>
-    img {
-        display: block;
-    }
     .placeholder-image {
+        background: #ffffff url("/logo_the-glass-files.jpg") no-repeat center;
+    }
+    .placeholder-image, img, lite-youtube {
         width: var(--width);
         height: var(--height);
-        background: #ffffff url("/logo_the-glass-files.jpg") no-repeat center;
     }
 </style>
