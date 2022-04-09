@@ -5,5 +5,7 @@
     "description": "a tgf app",
     "start_url": "/",
     "id": "/the-tgf-app",
-    "display": "standalone"
+    "display": "standalone",
+    "theme_color": "#860038",
+    "background_color": "#ffffff"
 }

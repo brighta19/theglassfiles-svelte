@@ -47,4 +47,7 @@
         width: var(--width);
         height: var(--height);
     }
+    a {
+        display: inline-block;
+    }
 </style>

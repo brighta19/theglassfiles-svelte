@@ -8,11 +8,6 @@
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
 
 	let items = [];
-
-	onMount(async () => {
-		items = await (await fetch("items.json")).json();
-	});
-
 	let previewedItem = null;
 	let showItemPreviewModal = false;
 	let showDescription = false;
@@ -27,6 +22,10 @@
 			document.body.style.overflowY = "overlay";
 		}
 	}
+
+	onMount(async () => {
+		items = await (await fetch("items.json")).json();
+	});
 
 	function onItemClick(event) {
 		previewedItem = event.detail;

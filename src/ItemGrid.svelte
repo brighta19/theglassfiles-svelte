@@ -14,6 +14,7 @@
 
 <div class="items" style="--template-columns: {templateColumns}; --gap: {gap}">
     {#if items.length === 0}
+        <!-- Display skeleton screen -->
         {#each (new Array(Number(placeholders))) as _i}
             <ItemThumbnailPlaceholder />
         {/each}

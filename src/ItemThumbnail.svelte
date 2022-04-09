@@ -25,16 +25,21 @@
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
+
+    function onKeyDown(event) {
+        if (event.code === "Enter")
+            dispatch(ITEM_CLICK_EVENT, item);
+    }
 </script>
 
-<div class="item" class:red class:blue on:click={() => dispatch(ITEM_CLICK_EVENT, item)}>
+<div class="item focusable" class:red class:blue on:click={() => dispatch(ITEM_CLICK_EVENT, item)} on:keydown={onKeyDown} tabindex="0">
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
 		<p>
 			{#each tags as tag, i}
 				{#if i !== 0} &nbsp;| {/if} <!-- Yes, i needed &nbsp; -->
-				<a href={urlFromTag(tag)} on:click|stopPropagation>{tag}</a>
+				<a href={urlFromTag(tag)} on:click|stopPropagation tabindex={showTags ? "0" : "-1"}>{tag}</a>
 			{/each}
 		</p>
 	</div>

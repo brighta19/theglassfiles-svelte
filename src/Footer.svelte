@@ -1,18 +1,18 @@
 <footer>
     <nav class="block-1 blue-bg">
         <p><a href="/">Blog</a></p>
-        <span>||</span>
+        ||
         <p><a href="/">Newsletter</a></p>
-        <span>||</span>
+        ||
         <p><a href="/">Twitter</a></p>
-        <span>||</span>
+        ||
         <p><a href="/">Instagram</a></p>
     </nav>
     <nav class="block-2 blue">
         <p><a href="/">customer service</a></p>
-        <span>||</span>
+        ||
         <p><a href="/">terms of use</a></p>
-        <span>||</span>
+        ||
         <p><a href="/">privacy</a></p>
     </nav>
     <p class="copyright blue">all materials &copy; 2013-2022, their respective owners or The Glass Files Inc.</p>
@@ -27,14 +27,15 @@
         display: inline-block;
         text-decoration: none;
         height: max-content;
+        padding: 0 60px;
     }
     a:hover {
         text-decoration: underline;
     }
     .block-1 {
         display: flex;
-        justify-content: space-between;
-        padding: 16px 80px;
+        justify-content: space-evenly;
+        padding: 16px 0;
         color: #ffffff;
         font-size: 1.8rem;
     }
@@ -45,14 +46,13 @@
     .block-2 {
         display: flex;
         justify-content: center;
-        padding: 5px 10px;
+        padding: 0 10px;
         font-size: 1.15rem;
-        margin: 0 auto;
+        margin: 7px 0;
     }
     .block-2 a {
         color: inherit;
         font-size: 1.15rem;
-        padding: 2px 80px;
     }
     .block-1 a:hover {
         text-decoration: underline;
