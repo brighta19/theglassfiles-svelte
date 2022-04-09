@@ -5,17 +5,40 @@
 
 	export let item;
 	export let index;
+	export let showDescription = false;
+	export let showTags = false;
 
     const ITEM_CLICK_EVENT = "itemclick";
 
+	let {
+		media_type,
+		summary,
+		location,
+		date,
+		thumbnail_src,
+		tags
+	} = item;
+
 	let blue = (index + Math.floor(index / 4)) % 2 === 1;
 	let red = (index + Math.floor(index / 4)) % 2 === 0;
-	let {media_type, summary, location, date, thumbnail_src} = item;
+
+    function urlFromTag(tag) {
+        return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
+    }
 </script>
 
 <div class="item" class:red class:blue on:click={() => dispatch(ITEM_CLICK_EVENT, item)}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
-	<div class="info">
+	<div class="tags" class:show={showTags}>
+		<p>{summary}</p>
+		<p>
+			{#each tags as tag, i}
+				{#if i !== 0} &nbsp;| {/if} <!-- Yes, i needed &nbsp; -->
+				<a href={urlFromTag(tag)} on:click|stopPropagation>{tag}</a>
+			{/each}
+		</p>
+	</div>
+	<div class="info" class:show={showDescription}>
 		<p>{media_type}</p>
 		<p>{summary}</p>
 		<p>{location}</p>
@@ -50,8 +73,7 @@
 		top: 0;
 		left: 0;
 	}
-	.info {
-		opacity: 0;
+	.info, .tags {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -65,21 +87,34 @@
 		line-height: 1.4;
 		transition: opacity var(--transition-speed);
 	}
-	.red .info {
+	.red .info, .red .tags {
 		background-color: var(--color-red);
 		background-color: var(--color-reda);
 	}
-	.blue .info {
+	.blue .info, .blue .tags {
 		background-color: var(--color-blue);
 		background-color: var(--color-bluea);
 	}
-	.info p {
-		margin: 0 0 15px 0;
+	p {
+		margin-bottom: 15px;
+	}
+	a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
 	}
 	.item:hover {
 		transform: scale(1.1);
 	}
-	.item:hover .info {
+	.item:hover .tags:not(.show) ~ .info.show, .info, .tags {
+		opacity: 0;
+	}
+	.item:hover .tags:not(.show) ~ .info, .info.show, .tags.show {
 		opacity: 1;
+	}
+	.item:hover .tags.show ~ .info {
+		display: none;
 	}
 </style>

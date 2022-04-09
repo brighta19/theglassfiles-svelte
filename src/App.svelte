@@ -15,6 +15,8 @@
 
 	let previewedItem = null;
 	let showItemPreviewModal = false;
+	let showDescription = false;
+	let showTags = false;
 
 	$: document.body.style.overflowY = showItemPreviewModal ? "hidden" : "overlay";
 
@@ -22,12 +24,17 @@
 		previewedItem = event.detail;
 		showItemPreviewModal = true;
 	}
+
+	function onViewChange(event) {
+		showDescription = event.detail === "descriptions";
+		showTags = event.detail === "tags";
+	}
 </script>
 
 <Header active="stories" />
 <main>
-	<ItemNavbar />
-	<ItemGrid {items} on:itemclick={onItemClick} />
+	<ItemNavbar on:viewchange={onViewChange} />
+	<ItemGrid {items} {showDescription} {showTags} on:itemclick={onItemClick} />
 </main>
 <Footer />
 {#if showItemPreviewModal}

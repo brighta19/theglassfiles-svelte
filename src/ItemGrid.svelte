@@ -6,6 +6,8 @@
     export let columns = 4;
     export let placeholders = 12;
     export let gap = "30px";
+    export let showDescription = false;
+    export let showTags = false;
 
     let templateColumns = " auto".repeat(columns);
 </script>
@@ -17,7 +19,7 @@
         {/each}
     {:else}
         {#each items as item, index}
-            <ItemThumbnail {item} {index} on:itemclick />
+            <ItemThumbnail {item} {index} {showDescription} {showTags} on:itemclick />
         {/each}
     {/if}
 </div>
