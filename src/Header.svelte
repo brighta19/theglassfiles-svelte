@@ -3,7 +3,7 @@
 </script>
 
 <header>
-    <a href="/"><img src="logo_the-glass-files.jpg" width="190" height="140" alt="The Glass Files logo"></a>
+    <a href="/"><img src="/logo_the-glass-files.jpg" width="190" height="140" alt="The Glass Files logo"></a>
     <nav class="links">
         <div class="block-1 red-bg">
             <p><a href="https://www.theglassfiles.com/stories" class:active={active == "stories"}>Stories</a></p>

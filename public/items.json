@@ -20,6 +20,7 @@
     }
   },
   {
+    "id": 8859,
     "media_type": "artwork",
     "subject": "",
     "title": "",
@@ -39,6 +40,7 @@
     }
   },
   {
+    "id": 8857,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -58,6 +60,7 @@
     }
   },
   {
+    "id": 8861,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -77,6 +80,7 @@
     }
   },
   {
+    "id": 377,
     "media_type": "video",
     "subject": "",
     "title": "",
@@ -96,6 +100,7 @@
     }
   },
   {
+    "id": 8860,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -115,6 +120,7 @@
     }
   },
   {
+    "id": 8671,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -134,6 +140,7 @@
     }
   },
   {
+    "id": 8822,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -151,8 +158,9 @@
       "middle_name": "",
       "last_name": ""
     }
-  }  ,
+  },
   {
+    "id": 8732,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -172,6 +180,7 @@
     }
   },
   {
+    "id": 8791,
     "media_type": "biography",
     "subject": "",
     "title": "",
@@ -191,6 +200,7 @@
     }
   },
   {
+    "id": 8788,
     "media_type": "photograph",
     "subject": "",
     "title": "",
@@ -210,6 +220,7 @@
     }
   },
   {
+    "id": 376,
     "media_type": "video",
     "subject": "",
     "title": "",

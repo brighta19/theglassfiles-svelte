@@ -1,22 +1,17 @@
 <script>
+    import { getPathFromItem, getGeneralMediaType } from "./ItemThumbnail.svelte";
+
     export let item;
     export let width;
     export let height;
     export let includeLink = false;
 
-    let imageMediaTypes = ["artwork", "photograph", "biography"];
-    let videoMediaTypes = ["video"];
-
     let {
-        id,
-        media_type,
         media_src,
         youtube_video_id
     } = item;
 
-    let isImage = imageMediaTypes.find(m => m === media_type);
-    let isVideo = videoMediaTypes.find(m => m === media_type);
-    let link = `https://www.theglassfiles.com/browse/images/${id}/show`;
+    let generalMediaType = getGeneralMediaType(item);
     let alt = "Item preview";
     let loadError = false;
 </script>
@@ -25,15 +20,15 @@
     {#if loadError}
         <div class="placeholder-image"></div>
     {:else}
-        {#if isImage}
+        {#if generalMediaType === "image"}
             {#if includeLink}
-                <a href={link}>
+                <a href={getPathFromItem(item)}>
                     <img src={media_src} {alt} on:error={() => loadError = true} />
                 </a>
             {:else}
                 <img src={media_src} {alt} on:error={() => loadError = true} />
             {/if}
-        {:else if isVideo}
+        {:else if generalMediaType === "video"}
             <lite-youtube videoid={youtube_video_id}></lite-youtube>
         {/if}
     {/if}

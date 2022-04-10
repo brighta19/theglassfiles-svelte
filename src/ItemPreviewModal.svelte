@@ -3,8 +3,6 @@
     import ItemPreview from "./ItemPreview.svelte";
     import ItemGrid from "./ItemGrid.svelte";
 
-    const dispatch = createEventDispatcher();
-
     export let item;
 
     let {
@@ -23,15 +21,16 @@
         user
     } = item;
 
-    let showDetails = false;
-    let detailsButton;
-
+    const dispatch = createEventDispatcher();
     const EXIT_EVENT = "exit";
     const Links = {
         SIGN_UP: "https://www.theglassfiles.com/users/sign_up",
         SIGN_IN: "https://www.theglassfiles.com/users/sign_in",
         ITEM: `https://www.theglassfiles.com/browse/images/${id}/show`,
     };
+
+    let showDetails = false;
+    let detailsButton;
 
     onMount(() => detailsButton.focus());
 

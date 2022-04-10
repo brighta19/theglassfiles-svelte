@@ -20,7 +20,7 @@
         {/each}
     {:else}
         {#each items as item, index}
-            <ItemThumbnail {item} {index} {showDescription} {showTags} on:itemclick />
+            <ItemThumbnail {item} {index} {showDescription} {showTags} on:itemselect />
         {/each}
     {/if}
 </div>

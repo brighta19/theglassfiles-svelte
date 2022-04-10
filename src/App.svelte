@@ -1,12 +1,11 @@
 <script>
 	import { onMount } from "svelte";
-
 	import Header from "./Header.svelte";
 	import ItemGrid from "./ItemGrid.svelte";
 	import ItemNavbar from "./ItemNavbar.svelte";
 	import Footer from "./Footer.svelte";
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
-	import { focusLastSelectedItem } from "./ItemThumbnail.svelte";
+	import { getItemElement, getPathFromItem } from "./ItemThumbnail.svelte";
 
 	let items = [];
 	let previewedItem = null;
@@ -25,28 +24,60 @@
 	}
 
 	onMount(async () => {
-		items = await (await fetch("items.json")).json();
+		items = await (await fetch("/items.json")).json();
+
+		let match = window.location.pathname.match(/^\/(?:images|videos)\/(\d+)/);
+		if (match !== null) {
+			let id = Number(match[1]);
+			let previewedItem = items.find((item) => item.id === id);
+			if (previewedItem !== undefined) {
+				history.replaceState({ previewedItem }, "", getPathFromItem(previewedItem));
+				onStateChange();
+			}
+		}
 	});
 
-	function onItemClick(event) {
-		previewedItem = event.detail;
+	window.addEventListener("popstate", onStateChange);
+
+	function onStateChange() {
+		if (history.state === null) {
+			hideItemPreviewModal();
+		}
+		else if (history.state.previewedItem !== undefined) {
+			previewedItem = history.state.previewedItem;
+			showItemPreviewModal = true;
+		}
+	}
+
+	function onItemSelect(event) {
+		previewedItem = event.detail.item;
 		showItemPreviewModal = true;
+		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
 	}
 
 	function onViewChange(event) {
 		showDescription = event.detail === "descriptions";
 		showTags = event.detail === "tags";
 	}
+
 	function onExit() {
+		hideItemPreviewModal();
+		history.pushState(null, "", "/");
+	}
+
+	function hideItemPreviewModal() {
 		showItemPreviewModal = false;
-		focusLastSelectedItem();
+		let itemThumbnailElement = getItemElement(previewedItem);
+		if (itemThumbnailElement !== null)
+			itemThumbnailElement.focus();
 	}
 </script>
 
+<svelte:window on:pop />
 <Header active="stories" />
 <main>
 	<ItemNavbar on:viewchange={onViewChange} />
-	<ItemGrid {items} {showDescription} {showTags} on:itemclick={onItemClick} />
+	<ItemGrid {items} {showDescription} {showTags} on:itemselect={onItemSelect} />
 </main>
 <Footer />
 {#if showItemPreviewModal}

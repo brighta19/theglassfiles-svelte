@@ -1,19 +1,45 @@
 <script context="module">
-	let focusLastSelectedItem = () => {};
-	export { focusLastSelectedItem };
+    const imageMediaTypes = ["artwork", "photograph", "biography"];
+    const videoMediaTypes = ["video"];
+
+	function getItemElement(item) {
+		return document.querySelector(`div[data-path="${getPathFromItem(item)}"]`);
+	}
+
+	function getGeneralMediaType(item) {
+		let { media_type } = item;
+		let type = "";
+
+		if (imageMediaTypes.find(m => m === media_type))
+			type = "image";
+		else if (videoMediaTypes.find(m => m === media_type))
+			type = "video";
+
+		return type;
+	}
+
+	function getPathFromItem(item) {
+		let { id, media_type } = item;
+		let itemPath = "";
+
+		if (imageMediaTypes.find(m => m === media_type))
+			itemPath = `/images/${id}`;
+		else if (videoMediaTypes.find(m => m === media_type))
+			itemPath = `/videos/${id}`;
+
+		return itemPath;
+	}
+
+	export { getItemElement, getPathFromItem, getGeneralMediaType };
 </script>
 
 <script>
     import { createEventDispatcher } from "svelte";
 
-    const dispatch = createEventDispatcher();
-
 	export let item;
 	export let index;
 	export let showDescription = false;
 	export let showTags = false;
-
-    const ITEM_CLICK_EVENT = "itemclick";
 
 	let {
 		media_type,
@@ -24,7 +50,9 @@
 		tags
 	} = item;
 
-	let itemElement;
+	const dispatch = createEventDispatcher();
+	const ITEM_CLICK_EVENT = "itemselect";
+
 	let blue = (index + Math.floor(index / 4)) % 2 === 1;
 	let red = (index + Math.floor(index / 4)) % 2 === 0;
 
@@ -40,12 +68,11 @@
     }
 
 	function dispatchEvent() {
-		focusLastSelectedItem = () => itemElement.focus();
-		dispatch(ITEM_CLICK_EVENT, item);
+		dispatch(ITEM_CLICK_EVENT, { item });
 	}
 </script>
 
-<div class="item focusable" tabindex="0" class:red class:blue on:click={dispatchEvent} on:keydown={onKeyDown} bind:this={itemElement}>
+<div class="item focusable" tabindex="0" data-path={getPathFromItem(item)} class:red class:blue on:click={dispatchEvent} on:keydown={onKeyDown}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
