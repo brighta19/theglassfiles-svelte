@@ -129,7 +129,6 @@
         padding-top: 25px;
         background: #ffffff;
         box-shadow: 0 5px 15px #00000088;
-        animation: 300ms fade-in;
     }
     .summary {
         display: flex;
@@ -184,5 +183,9 @@
             opacity: 1;
             transform: scale(1);
         }
+    }
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+        .preview { animation: 300ms fade-in }
     }
 </style>

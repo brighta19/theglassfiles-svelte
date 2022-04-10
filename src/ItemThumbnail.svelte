@@ -107,7 +107,6 @@
 		width: 210px;
 		height: 210px;
 		transform: scale(1);
-		transition: transform var(--transition-speed);
 	}
 	.item.red {
 		border-color: var(--color-red);
@@ -132,7 +131,6 @@
 		font-size: 13px;
 		letter-spacing: 2px;
 		line-height: 1.4;
-		transition: opacity var(--transition-speed);
 	}
 	.red .info, .red .tags {
 		background-color: var(--color-red);
@@ -170,4 +168,9 @@
 	.item:hover .tags.show ~ .info {
 		display: none;
 	}
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+        .item { transition: transform var(--transition-speed) }
+		.info, .tags { transition: opacity var(--transition-speed) }
+    }
 </style>
