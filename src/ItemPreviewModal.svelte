@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
     import ItemGrid from "./ItemGrid.svelte";
 
@@ -24,6 +24,7 @@
     } = item;
 
     let showDetails = false;
+    let detailsButton;
 
     const EXIT_EVENT = "exit";
     const Links = {
@@ -32,13 +33,17 @@
         ITEM: `https://www.theglassfiles.com/browse/images/${id}/show`,
     };
 
+    onMount(() => detailsButton.focus());
+
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
 
     function onKeyDown(event) {
-        if (event.code === "Escape")
+        if (event.code === "Escape") {
+            event.preventDefault();
             dispatch(EXIT_EVENT);
+        }
     }
 </script>
 
@@ -48,7 +53,7 @@
         <ItemPreview {item} width="720" height="480" includeLink />
         <div class="summary">
             <p>{summary}</p>
-            <button on:click={() => showDetails = !showDetails}>
+            <button on:click={() => showDetails = !showDetails} bind:this={detailsButton}>
                 {showDetails ? "Hide" : "Show"}
                 <span class="red">Details</span>
             </button>

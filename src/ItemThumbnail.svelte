@@ -1,3 +1,8 @@
+<script context="module">
+	let focusLastSelectedItem = () => {};
+	export { focusLastSelectedItem };
+</script>
+
 <script>
     import { createEventDispatcher } from "svelte";
 
@@ -19,6 +24,7 @@
 		tags
 	} = item;
 
+	let itemElement;
 	let blue = (index + Math.floor(index / 4)) % 2 === 1;
 	let red = (index + Math.floor(index / 4)) % 2 === 0;
 
@@ -27,12 +33,19 @@
     }
 
     function onKeyDown(event) {
-        if (event.code === "Enter")
-            dispatch(ITEM_CLICK_EVENT, item);
+        if (event.code === "Enter") {
+			event.preventDefault();
+			dispatchEvent();
+		}
     }
+
+	function dispatchEvent() {
+		focusLastSelectedItem = () => itemElement.focus();
+		dispatch(ITEM_CLICK_EVENT, item);
+	}
 </script>
 
-<div class="item focusable" class:red class:blue on:click={() => dispatch(ITEM_CLICK_EVENT, item)} on:keydown={onKeyDown} tabindex="0">
+<div class="item focusable" tabindex="0" class:red class:blue on:click={dispatchEvent} on:keydown={onKeyDown} bind:this={itemElement}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>

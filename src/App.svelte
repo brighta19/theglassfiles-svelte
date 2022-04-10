@@ -6,6 +6,7 @@
 	import ItemNavbar from "./ItemNavbar.svelte";
 	import Footer from "./Footer.svelte";
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
+	import { focusLastSelectedItem } from "./ItemThumbnail.svelte";
 
 	let items = [];
 	let previewedItem = null;
@@ -36,6 +37,10 @@
 		showDescription = event.detail === "descriptions";
 		showTags = event.detail === "tags";
 	}
+	function onExit() {
+		showItemPreviewModal = false;
+		focusLastSelectedItem();
+	}
 </script>
 
 <Header active="stories" />
@@ -45,5 +50,5 @@
 </main>
 <Footer />
 {#if showItemPreviewModal}
-	<ItemPreviewModal item={previewedItem} on:exit={() => showItemPreviewModal = false} />
+	<ItemPreviewModal item={previewedItem} on:exit={onExit} />
 {/if}
