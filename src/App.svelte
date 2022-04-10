@@ -5,7 +5,7 @@
 	import ItemNavbar from "./ItemNavbar.svelte";
 	import Footer from "./Footer.svelte";
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
-	import { getItemElement, getPathFromItem } from "./ItemThumbnail.svelte";
+	import { selectedItemElement, getPathFromItem } from "./ItemThumbnail.svelte";
 
 	let items = [];
 	let previewedItem = null;
@@ -67,9 +67,8 @@
 
 	function hideItemPreviewModal() {
 		showItemPreviewModal = false;
-		let itemThumbnailElement = getItemElement(previewedItem);
-		if (itemThumbnailElement !== null)
-			itemThumbnailElement.focus();
+		if (selectedItemElement !== null)
+			selectedItemElement.focus();
 	}
 </script>
 

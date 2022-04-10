@@ -2,9 +2,7 @@
     const imageMediaTypes = ["artwork", "photograph", "biography"];
     const videoMediaTypes = ["video"];
 
-	function getItemElement(item) {
-		return document.querySelector(`div[data-path="${getPathFromItem(item)}"]`);
-	}
+	let selectedItemElement = null;
 
 	function getGeneralMediaType(item) {
 		let { media_type } = item;
@@ -30,7 +28,7 @@
 		return itemPath;
 	}
 
-	export { getItemElement, getPathFromItem, getGeneralMediaType };
+	export { selectedItemElement, getPathFromItem, getGeneralMediaType };
 </script>
 
 <script>
@@ -51,8 +49,8 @@
 	} = item;
 
 	const dispatch = createEventDispatcher();
-	const ITEM_CLICK_EVENT = "itemselect";
 
+	let element;
 	let blue = (index + Math.floor(index / 4)) % 2 === 1;
 	let red = (index + Math.floor(index / 4)) % 2 === 0;
 
@@ -60,19 +58,24 @@
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
 
+	function onClick(event) {
+		if (!event.shiftKey && !event.ctrlKey)
+			onItemSelect(event);
+	}
+
     function onKeyDown(event) {
-        if (event.code === "Enter") {
-			event.preventDefault();
-			dispatchEvent();
-		}
+        if (event.code === "Enter" && (!event.shiftKey && !event.ctrlKey))
+			onItemSelect(event);
     }
 
-	function dispatchEvent() {
-		dispatch(ITEM_CLICK_EVENT, { item });
+	function onItemSelect(event) {
+		event.preventDefault();
+		selectedItemElement = element;
+		dispatch("itemselect", { item });
 	}
 </script>
 
-<div class="item focusable" tabindex="0" data-path={getPathFromItem(item)} class:red class:blue on:click={dispatchEvent} on:keydown={onKeyDown}>
+<a href={getPathFromItem(item)} class="item" class:red class:blue on:click={onClick} on:keydown={onKeyDown} bind:this={element}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
@@ -89,7 +92,7 @@
 		<p>{location}</p>
 		<p>{date}</p>
 	</div>
-</div>
+</a>
 
 <style>
 	.item {
@@ -105,7 +108,6 @@
 		height: 210px;
 		transform: scale(1);
 		transition: transform var(--transition-speed);
-		cursor: pointer;
 	}
 	.item.red {
 		border-color: var(--color-red);
@@ -150,13 +152,19 @@
 	a:hover {
 		text-decoration: underline;
 	}
-	.item:hover {
+	.item:hover, .item:focus {
 		transform: scale(1.1);
 	}
-	.item:hover .tags:not(.show) ~ .info.show, .info, .tags {
+	.item:hover .tags:not(.show) ~ .info.show,
+	.item:focus .tags:not(.show) ~ .info.show,
+	.info,
+	.tags {
 		opacity: 0;
 	}
-	.item:hover .tags:not(.show) ~ .info, .info.show, .tags.show {
+	.item:hover .tags:not(.show) ~ .info,
+	.item:focus .tags:not(.show) ~ .info,
+	.info.show,
+	.tags.show {
 		opacity: 1;
 	}
 	.item:hover .tags.show ~ .info {
