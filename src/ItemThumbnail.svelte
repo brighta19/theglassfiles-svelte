@@ -1,31 +1,12 @@
 <script context="module">
-    const imageMediaTypes = ["artwork", "photograph", "biography"];
-    const videoMediaTypes = ["video"];
-
 	let selectedItemElement = null;
 
 	function getGeneralMediaType(item) {
-		let { media_type } = item;
-		let type = "";
-
-		if (imageMediaTypes.find(m => m === media_type))
-			type = "image";
-		else if (videoMediaTypes.find(m => m === media_type))
-			type = "video";
-
-		return type;
+		return item.media_type === "video" ? "video" : "image";
 	}
 
 	function getPathFromItem(item) {
-		let { id, media_type } = item;
-		let itemPath = "";
-
-		if (imageMediaTypes.find(m => m === media_type))
-			itemPath = `/images/${id}`;
-		else if (videoMediaTypes.find(m => m === media_type))
-			itemPath = `/videos/${id}`;
-
-		return itemPath;
+		return item.media_type === "video" ? `/videos/${item.id}` : `/images/${item.id}`;
 	}
 
 	export { selectedItemElement, getPathFromItem, getGeneralMediaType };
@@ -76,7 +57,7 @@
 </script>
 
 <a href={getPathFromItem(item)} class="item" class:red class:blue on:click={onClick} on:keydown={onKeyDown} bind:this={element}>
-	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt="Item thumbnail" />
+	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt={summary} />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
 		<p>

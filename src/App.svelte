@@ -5,6 +5,7 @@
 	import ItemNavbar from "./ItemNavbar.svelte";
 	import Footer from "./Footer.svelte";
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
+	import ToTopButton from "./ToTopButton.svelte";
 	import { selectedItemElement, getPathFromItem } from "./ItemThumbnail.svelte";
 
 	let items = [];
@@ -79,6 +80,7 @@
 	<ItemGrid {items} {showDescription} {showTags} on:itemselect={onItemSelect} />
 </main>
 <Footer />
+<ToTopButton />
 {#if showItemPreviewModal}
 	<ItemPreviewModal item={previewedItem} on:exit={onExit} />
 {/if}
