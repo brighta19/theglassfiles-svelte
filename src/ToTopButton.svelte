@@ -16,7 +16,7 @@
         position: fixed;
         bottom: 20px;
         right: 40px;
-        padding: 5px;
+        padding: 5px 10px;
         background-color: #0f004e;
         border: 1px solid #ffffff;
         font-size: 1.2rem;

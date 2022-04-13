@@ -1,6 +1,4 @@
 <script context="module">
-	let selectedItemElement = null;
-
 	function getGeneralMediaType(item) {
 		return item.media_type === "video" ? "video" : "image";
 	}
@@ -9,11 +7,11 @@
 		return item.media_type === "video" ? `/videos/${item.id}` : `/images/${item.id}`;
 	}
 
-	export { selectedItemElement, getPathFromItem, getGeneralMediaType };
+	export { getPathFromItem, getGeneralMediaType };
 </script>
 
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
 
 	export let item;
 	export let index;
@@ -35,6 +33,11 @@
 	let blue = (index + Math.floor(index / 4)) % 2 === 1;
 	let red = (index + Math.floor(index / 4)) % 2 === 0;
 
+	onMount(() => {
+		if (index === 0)
+			dispatch("firstitem", { element });
+	});
+
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
@@ -51,8 +54,7 @@
 
 	function onItemSelect(event) {
 		event.preventDefault();
-		selectedItemElement = element;
-		dispatch("itemselect", { item });
+		dispatch("itemselect", { item, itemElement: element });
 	}
 </script>
 
