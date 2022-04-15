@@ -9,7 +9,7 @@
 	import LoadMoreButton from "./LoadMoreButton.svelte";
 	import { getPathFromItem } from "./ItemThumbnail.svelte";
 
-	const ITEMS_PER_PAGE = 32;
+	const ITEMS_PER_PAGE = 24;
 
 	let selectedItemElement = null;
 	let itemGroups = [];
@@ -37,28 +37,7 @@
 		pages = data.pages;
 		items = data.items;
 		items = [...items, ...items, ...items, ...items].slice(0, ITEMS_PER_PAGE); // i needed items
-		itemGroups = [...itemGroups, items];
-		// items = await (await fetch(`http://localhost:4000/groups/-2/items?limit=${ITEMS_PER_PAGE}`)).json();
-		// items = items.map((item) => ({
-		// 	id: item.id,
-		// 	media_type: item.media_type,
-		// 	subject: item.subject,
-		// 	title: item.title,
-		// 	summary: item.description_short,
-		// 	description: item.description,
-		// 	location: item.location,
-		// 	date: "some point in time",
-		// 	author: item.author,
-		// 	source: item.source,
-		// 	tags: item.cached_tag_list.split(", "),
-		// 	thumbnail_src: `https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/${`${Math.floor(item.id / 1000)}`.padStart(3, "0")}/${`${item.id % 1000}`.padStart(3, "0")}/thumb/${item.file_original_file_name}`,
-		// 	media_src: `https://s3.amazonaws.com/media-theglassfiles-com/media/images/000/${`${Math.floor(item.id / 1000)}`.padStart(3, "0")}/${`${item.id % 1000}`.padStart(3, "0")}/show/${item.file_original_file_name}`,
-		// 	user: {
-		// 		first_name: "A",
-		// 		middle_name: "B",
-		// 		last_name: "C"
-		// 	}
-		// }));
+		itemGroups = [...itemGroups, items]; // itemGroups.push(items);
 
 		let match = window.location.pathname.match(/^\/(?:images|videos)\/(\d+)/);
 		if (match !== null) {
@@ -112,8 +91,10 @@
 
 	function onFirstItem(event) {
 		let itemElement = event.detail.element;
-		if (pagesLoaded > 1)
+		if (pagesLoaded > 1) {
 			itemElement.focus();
+			window.scrollBy(0, window.innerHeight / 3);
+		}
 	}
 </script>
 
