@@ -99,8 +99,9 @@
 </script>
 
 <svelte:window on:popstate={onStateChange} />
+<a class="skipLink" href="#main">Skip to main content</a>
 <Header active="stories" />
-<main>
+<main id="main">
 	<ItemNavbar on:viewchange={onViewChange} />
 	{#each itemGroups as items, i}
 		{#if i !== 0}
@@ -133,5 +134,18 @@
 		display: inline-block;
 		border: none;
 		border-top: 1px solid #888888;
+	}
+	.skipLink {
+		position: fixed;
+		top: 10px;
+		left: 10px;
+		box-shadow: 0 5px 5px #aaaaaa;
+		padding: 5px;
+		transform: translateY(-200%);
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+	}
+	.skipLink:focus {
+		transform: translateY(0%);
 	}
 </style>
