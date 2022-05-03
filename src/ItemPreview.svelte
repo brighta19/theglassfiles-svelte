@@ -45,4 +45,7 @@
     a {
         display: inline-block;
     }
+    img {
+        background-color: #222222;
+    }
 </style>

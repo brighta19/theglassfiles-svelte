@@ -15,6 +15,7 @@
 	let itemGroups = [];
 	let items = [];
 	let previewedItem = null;
+	let showModalContainer = false;
 	let showItemPreviewModal = false;
 	let showDescription = false;
 	let showTags = false;
@@ -22,7 +23,7 @@
 	let pages = 0;
 
 	$: {
-		if (showItemPreviewModal) {
+		if (showModalContainer) {
 			document.body.style.overflowY = "hidden";
 		}
 		else {
@@ -36,9 +37,10 @@
 		pagesLoaded = data.current_page;
 		pages = data.pages;
 		items = data.items;
-		items = [...items, ...items, ...items, ...items].slice(0, ITEMS_PER_PAGE); // i needed items
+		items = [...items, ...items, ...items, ...items].slice(0, ITEMS_PER_PAGE); // i needed items :3
 		itemGroups = [...itemGroups, items]; // itemGroups.push(items);
 
+		// Match "/images/#" or "/videos/#"
 		let match = window.location.pathname.match(/^\/(?:images|videos)\/(\d+)/);
 		if (match !== null) {
 			let id = Number(match[1]);
@@ -51,9 +53,21 @@
 	});
 
 	function hideItemPreviewModal() {
+		showModalContainer = false;
 		showItemPreviewModal = false;
 		if (selectedItemElement !== null)
 			selectedItemElement.focus();
+	}
+
+	function getSixRandomItems() {
+		let list = [...items];
+		let randomList = [];
+		while (randomList.length < 6 && list.length > 0) {
+			let item = list.splice(Math.floor(Math.random() * list.length), 1)[0];
+			if (item.id !== previewedItem.id)
+				randomList.push(item);
+		}
+		return randomList;
 	}
 
 	function onStateChange() {
@@ -62,6 +76,7 @@
 		}
 		else if (history.state.previewedItem !== undefined) {
 			previewedItem = history.state.previewedItem;
+			showModalContainer = true;
 			showItemPreviewModal = true;
 		}
 	}
@@ -69,7 +84,15 @@
 	function onItemSelect(event) {
 		previewedItem = event.detail.item;
 		selectedItemElement = event.detail.itemElement;
+		showModalContainer = true;
 		showItemPreviewModal = true;
+		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
+	}
+
+	function onItemSelectFromModal(event) {
+		previewedItem = event.detail.item;
+		showItemPreviewModal = false;
+		setTimeout(() => showItemPreviewModal = true, 100);
 		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
 	}
 
@@ -96,9 +119,17 @@
 			window.scrollBy(0, window.innerHeight / 3);
 		}
 	}
+
+    function onKeyDown(event) {
+        if (showModalContainer && event.code === "Escape") {
+            event.preventDefault();
+			onExit();
+        }
+    }
 </script>
 
-<svelte:window on:popstate={onStateChange} />
+<svelte:window on:popstate={onStateChange} on:keydown={onKeyDown} />
+
 <a class="skipLink" href="#main">Skip to main content</a>
 <Header active="stories" />
 <main id="main">
@@ -119,8 +150,12 @@
 </main>
 <Footer />
 <ToTopButton />
+{#if showModalContainer}
+	<div class="modalContainer" on:click|self={() => onExit()}>
 {#if showItemPreviewModal}
-	<ItemPreviewModal item={previewedItem} on:exit={onExit} />
+			<ItemPreviewModal otherItems={getSixRandomItems()} item={previewedItem} on:itemselect={onItemSelectFromModal} />
+		{/if}
+	</div>
 {/if}
 
 <style>
@@ -148,4 +183,16 @@
 	.skipLink:focus {
 		transform: translateY(0%);
 	}
+    .modalContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        background-color: #00000088;
+        backdrop-filter: blur(4px);
+        overflow-y: auto;
+        overflow-y: overlay;
+    }
 </style>

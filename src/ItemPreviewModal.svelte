@@ -1,9 +1,10 @@
 <script>
-    import { createEventDispatcher, onMount } from "svelte";
+    import { onMount } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
     import ItemGrid from "./ItemGrid.svelte";
 
     export let item;
+    export let otherItems;
 
     let {
         id,
@@ -17,12 +18,9 @@
         author,
         source,
         tags,
-        img_src,
         user
     } = item;
 
-    const dispatch = createEventDispatcher();
-    const EXIT_EVENT = "exit";
     const Links = {
         SIGN_UP: "https://www.theglassfiles.com/users/sign_up",
         SIGN_IN: "https://www.theglassfiles.com/users/sign_in",
@@ -37,92 +35,71 @@
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
     }
-
-    function onKeyDown(event) {
-        if (event.code === "Escape") {
-            event.preventDefault();
-            dispatch(EXIT_EVENT);
-        }
-    }
 </script>
 
-<svelte:window on:keydown={onKeyDown} />
-<div class="container" on:click|self={() => dispatch(EXIT_EVENT)}>
-    <div class="preview">
-        <ItemPreview {item} width="720" height="480" includeLink />
-        <div class="summary">
-            <p>{summary}</p>
-            <button on:click={() => showDetails = !showDetails} bind:this={detailsButton}>
-                {showDetails ? "Hide" : "Show"}
-                <span class="red">Details</span>
-            </button>
+<div class="preview">
+    <ItemPreview {item} width="720" height="480" includeLink />
+    <div class="summary">
+        <p>{summary}</p>
+        <button on:click={() => showDetails = !showDetails} bind:this={detailsButton}>
+            {showDetails ? "Hide" : "Show"}
+            <span class="red">Details</span>
+        </button>
+    </div>
+    {#if showDetails}
+        <div class="details">
+            <p><span class="lower italic red">Media:</span> {media_type}</p>
+            <p><span class="lower italic red">Subject:</span> {subject}</p>
+            <p><span class="lower italic red">Title:</span> {title}</p>
+
+            <p>
+                <span class="lower italic red">Full description or story:</span>
+                <br>
+                {#each description.split('\n') as txt, i}
+                    {#if i !== 0} <br><br> {/if}
+                    {txt}
+                {/each}
+            </p>
+
+            <p><span class="lower italic red">Location:</span> {location}</p>
+            <p><span class="lower italic red">Date:</span> {date}</p>
+            <p><span class="lower italic red">Author:</span> {author}</p>
+            <p><span class="lower italic red">Source or Provenance:</span> {source}</p>
+
+            <p>
+                <span class="lower italic red">Tags:</span>
+                {#each tags as tag, i}
+                    {#if i !== 0} &nbsp;- {/if} <!-- Yes, i needed &nbsp; -->
+                    <a href={urlFromTag(tag)}>{tag}</a>
+                {/each}
+            </p>
+
+            <p class="share">
+                This item is shared by
+                <span class="blue">{user.first_name} {user.middle_name}</span>
+                <span class="red">{user.last_name}</span>
+                with the
+                <span class="red">Community</span>
+                and the
+                <span class="red">World</span>.
+            </p>
+
+            <hr>
+
+            <p class="login-status italic blue center">
+                To contribute your own story to History,
+                <a href={Links.SIGN_UP} class="bold red">Join</a>
+                or
+                <a href={Links.SIGN_IN} class="bold red">Enter</a>.
+            </p>
         </div>
-        {#if showDetails}
-            <div class="details">
-                <p><span class="lower italic red">Media:</span> {media_type}</p>
-                <p><span class="lower italic red">Subject:</span> {subject}</p>
-                <p><span class="lower italic red">Title:</span> {title}</p>
-
-                <p>
-                    <span class="lower italic red">Full description or story:</span>
-                    <br>
-                    {#each description.split('\n') as txt, i}
-                        {#if i !== 0} <br><br> {/if}
-                        {txt}
-                    {/each}
-                </p>
-
-                <p><span class="lower italic red">Location:</span> {location}</p>
-                <p><span class="lower italic red">Date:</span> {date}</p>
-                <p><span class="lower italic red">Author:</span> {author}</p>
-                <p><span class="lower italic red">Source or Provenance:</span> {source}</p>
-
-                <p>
-                    <span class="lower italic red">Tags:</span>
-                    {#each tags as tag, i}
-                        {#if i !== 0} &nbsp;- {/if} <!-- Yes, i needed &nbsp; -->
-                        <a href={urlFromTag(tag)}>{tag}</a>
-                    {/each}
-                </p>
-
-                <p class="share">
-                    This item is shared by
-                    <span class="blue">{user.first_name} {user.middle_name}</span>
-                    <span class="red">{user.last_name}</span>
-                    with the
-                    <span class="red">Community</span>
-                    and the
-                    <span class="red">World</span>.
-                </p>
-
-                <hr>
-
-                <p class="login-status italic blue center">
-                    To contribute your own story to History,
-                    <a href={Links.SIGN_UP} class="bold red">Join</a>
-                    or
-                    <a href={Links.SIGN_IN} class="bold red">Enter</a>.
-                </p>
-            </div>
-        {/if}
-        <div class="more">
-            <ItemGrid columns="3" placeholders="6" gap="20px" />
-        </div>
+    {/if}
+    <div class="more">
+        <ItemGrid items={otherItems} columns="3" placeholders="6" gap="20px" on:itemselect />
     </div>
 </div>
 
 <style>
-    .container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #000000;
-        background-color: #00000088;
-        overflow-y: auto;
-        overflow-y: overlay;
-    }
     .preview {
 	    width: 720px;
         margin: 30px auto;
