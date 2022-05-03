@@ -1,19 +1,19 @@
 <footer>
     <nav class="block-1 blue-bg">
-        <p><a href="/">Blog</a></p>
+        <p><a href="https://blog.theglassfiles.com/" rel="noopener noreferrer">Blog</a></p>
         ||
-        <p><a href="/">Newsletter</a></p>
+        <p><a href="https://www.theglassfiles.com/newsletter">Newsletter</a></p>
         ||
-        <p><a href="/">Twitter</a></p>
+        <p><a href="https://twitter.com/theglassfiles" rel="noopener noreferrer">Twitter</a></p>
         ||
-        <p><a href="/">Instagram</a></p>
+        <p><a href="https://instagram.com/theglassfiles" rel="noopener noreferrer">Instagram</a></p>
     </nav>
     <nav class="block-2 blue">
-        <p><a href="/">customer service</a></p>
+        <p><a href="https://www.theglassfiles.com/customer_service">customer service</a></p>
         ||
-        <p><a href="/">terms of use</a></p>
+        <p><a href="https://www.theglassfiles.com/terms">terms of use</a></p>
         ||
-        <p><a href="/">privacy</a></p>
+        <p><a href="https://www.theglassfiles.com/privacy">privacy</a></p>
     </nav>
     <p class="copyright blue">all materials &copy; 2013-2022, their respective owners or The Glass Files Inc.</p>
 </footer>

@@ -8,7 +8,7 @@
         <div class="block-1 red-bg">
             <p><a href="https://www.theglassfiles.com/stories" class:active={active == "stories"}>Stories</a></p>
             <p><a href="https://www.theglassfiles.com/intent" class:active={active == "intent"}>Intent</a></p>
-            <p><a href="https://blog.theglassfiles.com/">News</a></p>
+            <p><a href="https://blog.theglassfiles.com/" rel="noopener noreferrer">News</a></p>
             <p><a href="https://www.theglassfiles.com/users/sign_up" class:active={active == "join"}>Join</a></p>
         </div>
         <div class="block-2">
