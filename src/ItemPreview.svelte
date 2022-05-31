@@ -1,5 +1,5 @@
 <script>
-    import { getPathFromItem, getGeneralMediaType } from "./ItemThumbnail.svelte";
+    import { getPathFromItem, getGeneralMediaType } from "./helpers.js";
 
     export let item;
     export let width;

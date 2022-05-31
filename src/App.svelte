@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from "svelte";
+	import { getPathFromItem } from "./helpers.js";
 	import Header from "./Header.svelte";
 	import ItemGrid from "./ItemGrid.svelte";
 	import ItemNavbar from "./ItemNavbar.svelte";
@@ -7,9 +8,11 @@
 	import ItemPreviewModal from "./ItemPreviewModal.svelte";
 	import ToTopButton from "./ToTopButton.svelte";
 	import LoadMoreButton from "./LoadMoreButton.svelte";
-	import { getPathFromItem } from "./ItemThumbnail.svelte";
+
+	export let siteName;
 
 	const ITEMS_PER_PAGE = 24;
+	const TITLE_MAX_LENGTH = 60;
 
 	let selectedItemElement = null;
 	let itemGroups = [];
@@ -21,6 +24,7 @@
 	let showTags = false;
 	let pagesLoaded = 0;
 	let pages = 0;
+	let title = `Stories | ${siteName}`;
 
 	$: {
 		if (showModalContainer) {
@@ -46,6 +50,7 @@
 			let id = Number(match[1]);
 			let previewedItem = items.find((item) => item.id === id);
 			if (previewedItem !== undefined) {
+				title = getItemPreviewTitle(previewedItem);
 				history.replaceState({ previewedItem }, "", getPathFromItem(previewedItem));
 				onStateChange();
 			}
@@ -86,6 +91,7 @@
 		selectedItemElement = event.detail.itemElement;
 		showModalContainer = true;
 		showItemPreviewModal = true;
+		title = getItemPreviewTitle(previewedItem);
 		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
 	}
 
@@ -93,6 +99,7 @@
 		previewedItem = event.detail.item;
 		showItemPreviewModal = false;
 		setTimeout(() => showItemPreviewModal = true, 100);
+		title = getItemPreviewTitle(previewedItem);
 		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
 	}
 
@@ -103,6 +110,7 @@
 
 	function onExit() {
 		hideItemPreviewModal();
+		title = `Stories | ${siteName}`;
 		history.pushState(null, "", "/");
 	}
 
@@ -126,9 +134,22 @@
 			onExit();
         }
     }
+
+	function getItemPreviewTitle(item) {
+		const { summary } = item;
+		const suffix = `- Item | ${siteName}`;
+
+		if (summary.length + suffix.length > TITLE_MAX_LENGTH)
+			return `${summary.slice(0, TITLE_MAX_LENGTH - suffix.length - 4).trim()}... ${suffix}`;
+
+		return `${summary} ${suffix}`;
+	}
 </script>
 
 <svelte:window on:popstate={onStateChange} on:keydown={onKeyDown} />
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
 
 <a class="skipLink" href="#main">Skip to main content</a>
 <Header active="stories" />
@@ -138,7 +159,7 @@
 		{#if i !== 0}
 			<div class="separator">
 				<hr />
-				<span>{i+1}</span>
+				<span>{i + 1}</span>
 				<hr />
 			</div>
 		{/if}
@@ -152,7 +173,7 @@
 <ToTopButton />
 {#if showModalContainer}
 	<div class="modalContainer" on:click|self={() => onExit()}>
-{#if showItemPreviewModal}
+		{#if showItemPreviewModal}
 			<ItemPreviewModal otherItems={getSixRandomItems()} item={previewedItem} on:itemselect={onItemSelectFromModal} />
 		{/if}
 	</div>

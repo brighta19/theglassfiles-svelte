@@ -56,7 +56,7 @@
                 <span class="lower italic red">Full description or story:</span>
                 <br>
                 {#each description.split('\n') as txt, i}
-                    {#if i !== 0} <br><br> {/if}
+                    {#if i !== 0} <br /><br /> {/if}
                     {txt}
                 {/each}
             </p>
@@ -84,7 +84,7 @@
                 <span class="red">World</span>.
             </p>
 
-            <hr>
+            <hr />
 
             <p class="login-status italic blue center">
                 To contribute your own story to History,

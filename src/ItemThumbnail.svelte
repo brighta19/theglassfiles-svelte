@@ -1,16 +1,5 @@
-<script context="module">
-	function getGeneralMediaType(item) {
-		return item.media_type === "video" ? "video" : "image";
-	}
-
-	function getPathFromItem(item) {
-		return item.media_type === "video" ? `/videos/${item.id}` : `/images/${item.id}`;
-	}
-
-	export { getPathFromItem, getGeneralMediaType };
-</script>
-
 <script>
+	import { getPathFromItem } from "./helpers.js"
     import { createEventDispatcher, onMount } from "svelte";
 
 	export let item;
