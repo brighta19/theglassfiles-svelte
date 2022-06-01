@@ -8,8 +8,13 @@
     export let gap = "30px";
     export let showDescription = false;
     export let showTags = false;
+    export let focusFirstItem = false;
 
     let templateColumns = " auto".repeat(columns);
+
+    function isBlue(index) {
+        return (index + Math.floor(index / 4)) % 2 === 1;
+    }
 </script>
 
 <div class="items" style="--template-columns: {templateColumns}; --gap: {gap}">
@@ -20,7 +25,7 @@
         {/each}
     {:else}
         {#each items as item, index}
-            <ItemThumbnail {item} {index} {showDescription} {showTags} on:firstitem on:itemselect />
+            <ItemThumbnail {item} {showDescription} {showTags} focus={focusFirstItem && index === 0} blue={isBlue(index)} on:itemselect />
         {/each}
     {/if}
 </div>

@@ -3,9 +3,10 @@
     import { createEventDispatcher, onMount } from "svelte";
 
 	export let item;
-	export let index;
 	export let showDescription = false;
 	export let showTags = false;
+	export let focus = false;
+	export let blue = false;
 
 	let {
 		media_type,
@@ -19,13 +20,8 @@
 	const dispatch = createEventDispatcher();
 
 	let element;
-	let blue = (index + Math.floor(index / 4)) % 2 === 1;
-	let red = (index + Math.floor(index / 4)) % 2 === 0;
 
-	onMount(() => {
-		if (index === 0)
-			dispatch("firstitem", { element });
-	});
+	onMount(() => focus && element.focus());
 
     function urlFromTag(tag) {
         return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
@@ -47,7 +43,7 @@
 	}
 </script>
 
-<a href={getPathFromItem(item)} class="item" class:red class:blue on:click={onClick} on:keydown={onKeyDown} bind:this={element}>
+<a href={getPathFromItem(item)} class="item" class:blue on:click={onClick} on:keydown={onKeyDown} bind:this={element}>
 	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt={summary} />
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
@@ -79,8 +75,6 @@
 		width: 210px;
 		height: 210px;
 		transform: scale(1);
-	}
-	.item.red {
 		border-color: var(--color-red);
 	}
 	.item.blue {
@@ -104,7 +98,7 @@
 		letter-spacing: 2px;
 		line-height: 1.4;
 	}
-	.red .info, .red .tags {
+	.info, .tags {
 		background-color: var(--color-red);
 		background-color: var(--color-reda);
 	}

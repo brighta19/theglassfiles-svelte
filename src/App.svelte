@@ -120,14 +120,6 @@
 		pagesLoaded++;
 	}
 
-	function onFirstItem(event) {
-		let itemElement = event.detail.element;
-		if (pagesLoaded > 1) {
-			itemElement.focus();
-			window.scrollBy(0, window.innerHeight / 3);
-		}
-	}
-
     function onKeyDown(event) {
         if (showModalContainer && event.code === "Escape") {
             event.preventDefault();
@@ -163,7 +155,7 @@
 				<hr />
 			</div>
 		{/if}
-		<ItemGrid {items} {showDescription} {showTags} placeholders={ITEMS_PER_PAGE} on:itemselect={onItemSelect} on:firstitem={onFirstItem} />
+		<ItemGrid {items} {showDescription} {showTags} placeholders={ITEMS_PER_PAGE} focusFirstItem={pagesLoaded > 1} on:itemselect={onItemSelect} />
 	{/each}
 	{#if pagesLoaded < pages}
 		<LoadMoreButton on:click={onLoadMore} />
