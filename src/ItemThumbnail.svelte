@@ -76,6 +76,7 @@
 		height: 210px;
 		transform: scale(1);
 		border-color: var(--color-red);
+		overflow: hidden;
 	}
 	.item.blue {
 		border-color: var(--color-blue);
@@ -84,6 +85,9 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+	.item:hover .thumbnail {
+		transform: scale(1.1);
 	}
 	.info, .tags {
 		position: absolute;
