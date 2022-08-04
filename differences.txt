@@ -8,10 +8,9 @@ Changes (compared to official TGF home page)
 
 Noticeable changes
 
-- The borders on the item thumbnails are 1 pixel bigger.
 - Just like how the color of an item thumbnail alternate between red and blue, its border also matches the item color.
-- Hovering over items give the background color an alpha of 80%. The item's thumbnail is therefore visible but with a red/blue tint.
-- The item thumbnail’s image is slightly scaled up when hovered, making a zoom effect. 
+- Hovering over items give the background color an alpha of 80%. The item's thumbnail is terefore visible but with a red/blue tint.
+- The item thumbnail’s image is slightly scaled up when hovered, making a zoom effect.
 - All these animation effects are also present in the item preview modal, for the six random items below the previewed item’s details.
 - Clicked interactive elements have a blue border, indicating that it is focused.
 - Pagination is changed: There is a “Load More Items” button that adds additional items to the page. Page numbers are inserted between each cluster of items.
@@ -21,6 +20,7 @@ Noticeable changes
 
 Less noticeable changes
 
+- The borders on the item thumbnails are 1 pixel bigger.
 - Spacing between elements wasn’t followed exactly.
 - Scrolling is smoother.
 - Everything that can be interacted with (links, items, etc.) can be tabbed to (the Tab key). It is also visibly clear which element is currently focused using a light blue border.
@@ -29,5 +29,5 @@ Less noticeable changes
 - When clicking an item while holding the control key (or command key), it opens the item in a new tab, as usual. Now, a new window can also be opened by holding shift and clicking (functioning more like a typical link).
 - The official page shows two scrollbars when a item preview modal is opened. This page uses one instead.
 - The official site has CLS (content layout shift) on its item preview modal. Meaning, when the modal’s image isn’t loaded, elements such as the description and “show details” button are at the top. When the image is finally loaded, those elements are shifted down. It is more noticeable on slower connections. This page avoids such CLS.
-- YouTube videos appear to load quicker.
+- YouTube embeds load faster thanks to a package (lite-youtube-embed). They appear on screen almost (if not) as fast as images when fully loaded.
 - Clicking an item thumbnail brings up its preview modal, but also updates the URL and title to represent the item (as well as exiting out the modal). The forward and back buttons can then be used to switch between previously opened items.
