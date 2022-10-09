@@ -55,9 +55,9 @@
             <p>
                 <span class="lower italic red">Full description or story:</span>
                 <br>
-                {#each description.split('\n') as txt, i}
-                    {#if i !== 0} <br /><br /> {/if}
-                    {txt}
+                {#each description.split('\n') as line, i}
+                    {#if i !== 0} <br /> {/if}
+                    {line}
                 {/each}
             </p>
 
