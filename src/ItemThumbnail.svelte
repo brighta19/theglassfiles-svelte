@@ -17,9 +17,10 @@
 		tags
 	} = item;
 
-	const dispatch = createEventDispatcher();
-
 	let element;
+	let thumbnailLoadError = false;
+
+	const dispatch = createEventDispatcher();
 
 	onMount(() => focus && element.focus());
 
@@ -44,7 +45,14 @@
 </script>
 
 <a href={getPathFromItem(item)} class="item" class:blue on:click={onClick} on:keydown={onKeyDown} bind:this={element}>
-	<img class="thumbnail" src={thumbnail_src} width="210" height="210" alt={summary} />
+	<div class="thumbnail">
+		{#if thumbnailLoadError}
+			<div class="placeholder-image"></div>
+		{:else}
+			<img src={thumbnail_src} width="210" height="210" alt={summary} on:error={() => thumbnailLoadError = true} />
+		{/if}
+	</div>
+
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
 		<p>
@@ -85,9 +93,17 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+		width: inherit;
+		height: inherit;
 	}
 	.item:hover .thumbnail {
 		transform: scale(1.1);
+	}
+
+	.placeholder-image {
+		background: #ffffff url("/logo_the-glass-files.jpg") center / 60% no-repeat;
+		width: inherit;
+		height: inherit;
 	}
 	.info, .tags {
 		position: absolute;

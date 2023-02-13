@@ -13,20 +13,20 @@
 
     let generalMediaType = getGeneralMediaType(item);
     let alt = "Item preview";
-    let loadError = false;
+    let imageLoadError = false;
 </script>
 
 <div class="preview-container" style="--width: {width}px; --height: {height}px">
-    {#if loadError}
+    {#if imageLoadError}
         <div class="placeholder-image"></div>
     {:else}
         {#if generalMediaType === "image"}
             {#if includeLink}
                 <a href={getPathFromItem(item)}>
-                    <img src={media_src} {alt} on:error={() => loadError = true} />
+                    <img src={media_src} {alt} on:error={() => imageLoadError = true} />
                 </a>
             {:else}
-                <img src={media_src} {alt} on:error={() => loadError = true} />
+                <img src={media_src} {alt} on:error={() => imageLoadError = true} />
             {/if}
         {:else if generalMediaType === "video"}
             <lite-youtube videoid={youtube_video_id}></lite-youtube>
