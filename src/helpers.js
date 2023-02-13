@@ -6,4 +6,8 @@ function getGeneralMediaType(item) {
     return item.media_type === "video" ? "video" : "image";
 }
 
-export { getPathFromItem, getGeneralMediaType };
+function getBrowseUrlFromTag(tag) {
+    return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
+}
+
+export { getPathFromItem, getGeneralMediaType, getBrowseUrlFromTag };

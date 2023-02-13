@@ -1,4 +1,5 @@
 <script>
+    import { getBrowseUrlFromTag } from "./helpers.js";
     import { onMount } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
     import ItemGrid from "./ItemGrid.svelte";
@@ -24,17 +25,13 @@
     const Links = {
         SIGN_UP: "https://www.theglassfiles.com/users/sign_up",
         SIGN_IN: "https://www.theglassfiles.com/users/sign_in",
-        ITEM: `https://www.theglassfiles.com/browse/images/${id}/show`,
+        // ITEM: `https://www.theglassfiles.com/browse/images/${id}/show`,
     };
 
     let showDetails = false;
     let detailsButton;
 
     onMount(() => detailsButton.focus());
-
-    function urlFromTag(tag) {
-        return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
-    }
 </script>
 
 <div class="preview">
@@ -70,7 +67,7 @@
                 <span class="lower italic red">Tags:</span>
                 {#each tags as tag, i}
                     {#if i !== 0} &nbsp;- {/if} <!-- Yes, i needed &nbsp; -->
-                    <a href={urlFromTag(tag)}>{tag}</a>
+                    <a href={getBrowseUrlFromTag(tag)}>{tag}</a>
                 {/each}
             </p>
 

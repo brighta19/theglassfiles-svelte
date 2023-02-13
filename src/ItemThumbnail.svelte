@@ -1,5 +1,5 @@
 <script>
-	import { getPathFromItem } from "./helpers.js"
+	import { getPathFromItem, getBrowseUrlFromTag } from "./helpers.js"
     import { createEventDispatcher, onMount } from "svelte";
 
 	export let item;
@@ -23,10 +23,6 @@
 	const dispatch = createEventDispatcher();
 
 	onMount(() => focus && element.focus());
-
-    function urlFromTag(tag) {
-        return `https://www.theglassfiles.com/browse/tags?q=${tag}`;
-    }
 
 	function onClick(event) {
 		if (!event.shiftKey && !event.ctrlKey)
@@ -52,13 +48,12 @@
 			<img src={thumbnail_src} width="210" height="210" alt={summary} on:error={() => thumbnailLoadError = true} />
 		{/if}
 	</div>
-
 	<div class="tags" class:show={showTags}>
 		<p>{summary}</p>
 		<p>
 			{#each tags as tag, i}
 				{#if i !== 0} &nbsp;| {/if} <!-- Yes, i needed &nbsp; -->
-				<a href={urlFromTag(tag)} on:click|stopPropagation tabindex={showTags ? "0" : "-1"}>{tag}</a>
+				<a href={getBrowseUrlFromTag(tag)} on:click|stopPropagation tabindex={showTags ? "0" : "-1"}>{tag}</a>
 			{/each}
 		</p>
 	</div>
