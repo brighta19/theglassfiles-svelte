@@ -13,14 +13,16 @@
     let templateColumns = " auto".repeat(columns);
 
     function isBlue(index) {
-        return (index + Math.floor(index / 4)) % 2 === 1;
+        if (columns % 2 === 0)
+            return (index + Math.floor(index / columns)) % 2 === 1;
+        return index % 2 === 1;
     }
 </script>
 
 <div class="items" style="--template-columns: {templateColumns}; --gap: {gap}">
     {#if items.length === 0}
         <!-- Display skeleton screen -->
-        {#each (new Array(Number(placeholders))) as _i}
+        {#each (new Array(Number(placeholders))) as _}
             <ItemThumbnailPlaceholder />
         {/each}
     {:else}
