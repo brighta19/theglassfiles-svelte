@@ -21,6 +21,7 @@
 	let showModalContainer = false;
 	let showItemPreviewModal = false;
 	let showDescription = false;
+	let showDetails = false;
 	let showTags = false;
 	let pagesLoaded = 0;
 	let pages = 0;
@@ -44,22 +45,28 @@
 		items = [...items, ...items, ...items, ...items].slice(0, ITEMS_PER_PAGE); // i needed items :3
 		itemGroups = [...itemGroups, items]; // itemGroups.push(items);
 
-		// Match "/images/#" or "/videos/#"
+		setCurrentState();
+	});
+
+	function setCurrentState() {
+		// Match strings such as "/images/123#details" or "/videos/65"
 		let match = window.location.pathname.match(/^\/(?:images|videos)\/(\d+)/);
 		if (match !== null) {
 			let id = Number(match[1]);
+			showDetails = window.location.hash === "#details";
 			let previewedItem = items.find((item) => item.id === id);
 			if (previewedItem !== undefined) {
 				title = getItemPreviewTitle(previewedItem);
-				history.replaceState({ previewedItem }, "", getPathFromItem(previewedItem));
+				history.replaceState({ previewedItem }, "", getPathFromItem(previewedItem, showDetails));
 				onStateChange();
 			}
 		}
-	});
+	}
 
 	function hideItemPreviewModal() {
 		showModalContainer = false;
 		showItemPreviewModal = false;
+		showDetails = false;
 		if (selectedItemElement !== null)
 			selectedItemElement.focus();
 	}
@@ -78,11 +85,13 @@
 	function onStateChange() {
 		if (history.state === null) {
 			hideItemPreviewModal();
+			setCurrentState();
 		}
 		else if (history.state.previewedItem !== undefined) {
 			previewedItem = history.state.previewedItem;
 			showModalContainer = true;
 			showItemPreviewModal = true;
+			showDetails = window.location.hash === "#details";
 		}
 	}
 
@@ -91,16 +100,23 @@
 		selectedItemElement = event.detail.itemElement;
 		showModalContainer = true;
 		showItemPreviewModal = true;
+		showDetails = false;
 		title = getItemPreviewTitle(previewedItem);
-		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
+		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem, showDetails));
 	}
 
 	function onItemSelectFromModal(event) {
 		previewedItem = event.detail.item;
 		showItemPreviewModal = false;
+		showDetails = false;
 		setTimeout(() => showItemPreviewModal = true, 100);
 		title = getItemPreviewTitle(previewedItem);
-		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem));
+		history.pushState({ previewedItem }, "", getPathFromItem(previewedItem, showDetails));
+	}
+
+	function onDetailsVisibilityChange(event) {
+		showDetails = event.detail;
+		history.replaceState({ previewedItem }, "", getPathFromItem(previewedItem, showDetails));
 	}
 
 	function onViewChange(event) {
@@ -155,7 +171,14 @@
 				<hr />
 			</div>
 		{/if}
-		<ItemGrid {items} {showDescription} {showTags} placeholders={ITEMS_PER_PAGE} focusFirstItem={pagesLoaded > 1} on:itemselect={onItemSelect} />
+		<ItemGrid
+			{items}
+			{showDescription}
+			{showTags}
+			placeholders={ITEMS_PER_PAGE}
+			focusFirstItem={pagesLoaded > 1}
+			on:itemselect={onItemSelect}
+		/>
 	{/each}
 	{#if pagesLoaded < pages}
 		<LoadMoreButton on:click={onLoadMore} />
@@ -166,7 +189,13 @@
 {#if showModalContainer}
 	<div class="modalContainer" on:click|self={() => onExit()}>
 		{#if showItemPreviewModal}
-			<ItemPreviewModal otherItems={getSixRandomItems()} item={previewedItem} on:itemselect={onItemSelectFromModal} />
+			<ItemPreviewModal
+				{showDetails}
+				otherItems={getSixRandomItems()}
+				item={previewedItem}
+				on:itemselect={onItemSelectFromModal}
+				on:detailsvisibilitychange={onDetailsVisibilityChange}
+			/>
 		{/if}
 	</div>
 {/if}

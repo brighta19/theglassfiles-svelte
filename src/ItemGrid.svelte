@@ -26,8 +26,15 @@
             <ItemThumbnailPlaceholder />
         {/each}
     {:else}
-        {#each items as item, index}
-            <ItemThumbnail {item} {showDescription} {showTags} focus={focusFirstItem && index === 0} blue={isBlue(index)} on:itemselect />
+        {#each items as item, i}
+            <ItemThumbnail
+                {item}
+                {showDescription}
+                {showTags}
+                focus={focusFirstItem && i === 0}
+                blue={isBlue(i)}
+                on:itemselect
+            />
         {/each}
     {/if}
 </div>
