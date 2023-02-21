@@ -8,6 +8,7 @@ Changes (compared to official TGF home page)
 
 Noticeable changes
 
+- The item navbar, where you choose to view descriptions, artworks, or views, indicates which is active with an underline.
 - Just like how the color of an item thumbnail alternate between red and blue, its border also matches the item color.
 - Hovering over items give the background color an alpha of 80%. The item's thumbnail is terefore visible but with a red/blue tint.
 - The item thumbnail’s image is slightly scaled up when hovered, making a zoom effect.

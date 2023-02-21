@@ -27,7 +27,7 @@ button {
 	font-size: 1.5rem;
 	font-family: inherit;
 }
-button:hover:not([disabled]) {
+button:hover:not([disabled]), button.active {
 	text-decoration: underline;
 	cursor: pointer;
 }
