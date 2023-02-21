@@ -1,5 +1,7 @@
-function getPathFromItem(item) {
-    return item.media_type === "video" ? `/videos/${item.id}` : `/images/${item.id}`;
+function getPathFromItem(item, showDetails = false) {
+    const media = item.media_type === "video" ? "videos" : "images";
+    const hash = showDetails ? "#details" : "";
+    return `/${media}/${item.id}${hash}`;
 }
 
 function getGeneralMediaType(item) {

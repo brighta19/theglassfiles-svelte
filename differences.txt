@@ -30,4 +30,6 @@ Less noticeable changes
 - The official page shows two scrollbars when a item preview modal is opened. This page uses one instead.
 - The official site has CLS (cumulative layout shift) on its item preview modal. Meaning, when the modal’s image isn’t loaded, elements such as the description and “show details” button are at the top. When the image is finally loaded, those elements are shifted down. It is more noticeable on slower connections. This page avoids such CLS.
 - YouTube embeds load faster thanks to a package (lite-youtube-embed). They appear on screen almost (if not) as fast as images when fully loaded.
-- Clicking an item thumbnail brings up its preview modal, but also updates the URL and title to represent the item (as well as exiting out the modal). The forward and back buttons can then be used to switch between previously opened items.
+- Clicking an item thumbnail brings up its preview modal, but also updates the URL and title to represent the item (as well as exiting out the modal).
+- The forward and back buttons can be used to switch between previously opened items and the grid of items.
+- Showing the details of the item modifies the url to include a hash, "#details". So a link (with the hash) to an item can show details automatically.

@@ -1,11 +1,12 @@
 <script>
     import { getBrowseUrlFromTag } from "./helpers.js";
-    import { onMount } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import ItemPreview from "./ItemPreview.svelte";
     import ItemGrid from "./ItemGrid.svelte";
 
     export let item;
     export let otherItems;
+    export let showDetails = false;
 
     let {
         id,
@@ -22,23 +23,30 @@
         user
     } = item;
 
+    const DETAILS_VISIBILITY_EVENT = "detailsvisibilitychange";
     const Links = {
         SIGN_UP: "https://www.theglassfiles.com/users/sign_up",
         SIGN_IN: "https://www.theglassfiles.com/users/sign_in",
         // ITEM: `https://www.theglassfiles.com/browse/images/${id}/show`,
     };
 
-    let showDetails = false;
+    const dispatch = createEventDispatcher();
+
     let detailsButton;
 
     onMount(() => detailsButton.focus());
+
+    function onDetailsButtonClick() {
+        showDetails = !showDetails;
+        dispatch(DETAILS_VISIBILITY_EVENT, showDetails);
+    }
 </script>
 
 <div class="preview">
     <ItemPreview {item} width="720" height="480" includeLink />
     <div class="summary">
         <p>{summary}</p>
-        <button on:click={() => showDetails = !showDetails} bind:this={detailsButton}>
+        <button on:click={onDetailsButtonClick} bind:this={detailsButton}>
             {showDetails ? "Hide" : "Show"}
             <span class="red">Details</span>
         </button>
